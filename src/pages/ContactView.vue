@@ -227,8 +227,10 @@ watch(body, (newBody) => {
         <transition appear enter-active-class="animated bounceInUp">
           <div class="text-center q-mt-xl">
             <q-btn
+              rounded
+              push
               :loading="loading"
-              class="bg-deep-color-13"
+              class="bg-deep-color-13 q-py-sm"
               style="background-color: #4046ff; color: white; width: 300px"
               :label="submitted ? 'Already submitted form' : 'Submit'"
               :disable="submitted"

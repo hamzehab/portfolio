@@ -133,8 +133,8 @@ watch(slide, () => {
                   img-src="static/images/hsgrad.jpg"
                 />
                 <q-carousel-slide :name="5">
-                  <video style="width: 100%; height: inherit" controls autoplay>
-                    <source src="static/cgrad.mp4" type="video/mp4" />
+                  <video style="width: 150%; height: inherit" controls autoplay>
+                    <source src="static/cgrad.MP4" type="video/mp4" />
                   </video>
                 </q-carousel-slide>
               </q-carousel>
@@ -211,8 +211,201 @@ watch(slide, () => {
 
   <div class="q-py-md" />
   <SkillLogos />
-  <div class="q-py-md" />
-  Video game emoji later used&#127918;
 
+  <div class="q-pa-xl">
+    <div
+      class="gt-xs text-weight-bolder text-h4 q-ml-xl q-pb-md"
+      :class="$q.dark.isActive ? 'text-grey-8' : 'text-grey-6'"
+    >
+      Hobbies
+    </div>
+    <div
+      class="lt-sm text-center text-weight-bolder text-h4 q-pb-md"
+      :class="$q.dark.isActive ? 'text-grey-8' : 'text-grey-6'"
+    >
+      Hobbies
+    </div>
+    <q-separator />
+    <div
+      class="row justify-center text-center q-py-xl"
+      :class="$q.dark.isActive ? 'text-white' : ''"
+    >
+      <div class="q-py-lg q-mx-xl" style="width: 400px">
+        <div class="text-h4">
+          <img
+            :src="
+              $q.dark.isActive
+                ? 'static/hobbies/gamesDM.png'
+                : 'static/hobbies/games.png'
+            "
+            alt="controller"
+            style="border: 2px solid; border-radius: 3rem; padding: 15px"
+            :style="
+              $q.dark.isActive
+                ? 'border-color: #673ab7;'
+                : ' border-color: #3F51B5;'
+            "
+          />
+        </div>
+        <div
+          class="text-h6 q-mx-md"
+          :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
+        >
+          Video Games
+        </div>
+        <div class="text-caption">
+          I've been a gamer since I was three, starting with Nintendo's Mario
+          games, and I've now transitioned into a dedicated PC gamer. Whether it
+          be with family and friends or solo sessions I always seem to enjoy my
+          time and the moments. Gaming titles such as League of Legends, Rocket
+          League, Teamfight Tactics, Valorant, etc. are the games I have been
+          playing recently.
+        </div>
+      </div>
+      <div class="q-py-lg q-mx-xl" style="width: 400px">
+        <div class="text-h4">
+          <img
+            :src="
+              $q.dark.isActive
+                ? 'static/hobbies/basketballDM.png'
+                : 'static/hobbies/basketball.png'
+            "
+            alt="basketball"
+            style="border: 2px solid; border-radius: 3rem; padding: 15px"
+            :style="
+              $q.dark.isActive
+                ? 'border-color: #673ab7;'
+                : ' border-color: #3F51B5;'
+            "
+          />
+        </div>
+        <div
+          class="text-h6 q-mx-md"
+          :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
+        >
+          Basketball
+        </div>
+        <div class="text-caption">
+          Out of all the sports out there, I believe basketball to be the one I
+          enjoy the most. Most if not all my PE classes throughout elementary,
+          middle, and high school my classmates and I would play basketball.
+          Although I do not watch any professional basketball, I still consider
+          myself to love the sport.
+        </div>
+      </div>
+
+      <div class="q-py-lg q-mx-xl" style="width: 400px">
+        <div class="text-h4">
+          <img
+            :src="
+              $q.dark.isActive
+                ? 'static/hobbies/familyDM.png'
+                : 'static/hobbies/family.png'
+            "
+            alt="family"
+            style="border: 2px solid; border-radius: 3rem; padding: 16px"
+            :style="
+              $q.dark.isActive
+                ? 'border-color: #673ab7;'
+                : ' border-color: #3F51B5;'
+            "
+          />
+        </div>
+        <div
+          class="text-h6 q-mx-md"
+          :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
+        >
+          Family and Friends
+        </div>
+        <span
+          class="text-caption text-weight-bolder"
+          :class="$q.dark.isActive ? 'text-amber' : 'text-grey'"
+        >
+          I prefer real talk over small talk
+        </span>
+        <div class="text-caption">
+          My family and friends are everything to me in my life. Without them I
+          would not be where I am today. Whenever I have free time I enjoy
+          spending that time with those closest to me and engage in meaningful
+          conversations or even just enjoying each other's company.
+        </div>
+      </div>
+      <div class="q-py-lg q-mx-xl" style="width: 400px">
+        <div class="text-h4">
+          <img
+            class="q-mr-md"
+            :src="
+              $q.dark.isActive
+                ? 'static/hobbies/sunDM.png'
+                : 'static/hobbies/sun.png'
+            "
+            alt="sun"
+            style="border: 2px solid; border-radius: 3rem; padding: 15px"
+            :style="
+              $q.dark.isActive
+                ? 'border-color: #673ab7;'
+                : ' border-color: #3F51B5;'
+            "
+          />
+          <img
+            :src="
+              $q.dark.isActive
+                ? 'static/hobbies/homeDM.png'
+                : 'static/hobbies/home.png'
+            "
+            alt="Home"
+            style="border: 2px solid; border-radius: 3rem; padding: 15px"
+            :style="
+              $q.dark.isActive
+                ? 'border-color: #673ab7;'
+                : ' border-color: #3F51B5;'
+            "
+          />
+        </div>
+        <div
+          class="text-h6 q-mx-md"
+          :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
+        >
+          Outdoors or Indoors
+        </div>
+        <div class="text-captions">
+          As a person, I don't have much of a preference for having a good time.
+          I am always down for anything as long as we're enjoying each other's
+          company. Anything outdoors such as bowling, hiking, a walk on the
+          beach, or even sitting at home and playing games.
+        </div>
+      </div>
+      <div class="q-py-xl q-mx-xl" style="width: 400px">
+        <div class="text-h4">
+          <img
+            :src="
+              $q.dark.isActive
+                ? 'static/hobbies/musicDM.png'
+                : 'static/hobbies/music.png'
+            "
+            alt="Music"
+            style="border: 2px solid; border-radius: 3rem; padding: 10px"
+            :style="
+              $q.dark.isActive
+                ? 'border-color: #673ab7;'
+                : ' border-color: #3F51B5;'
+            "
+          />
+        </div>
+        <div
+          class="text-h6 q-mx-md"
+          :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
+        >
+          Music
+        </div>
+        <div class="text-caption">
+          In my free time or even when I am busy with tasks, music is something
+          I look forward to and never fails to lift me up or make things
+          slightly better. It sets a mood which allows me to unwind after a
+          long/busy day or even when going to the gym.
+        </div>
+      </div>
+    </div>
+  </div>
   <FooterComponent />
 </template>

@@ -56,7 +56,7 @@ onMounted(() => {
 <template>
   <div>
     <div class="bropic">
-      <div class="text-white absolute-center text-h2">
+      <div class="text-white absolute-center text-h2 full-width">
         <span class="text-black typed-text">Hi, I'm</span>
         <span class="typed-text">&nbsp;{{ typeValue }} </span>
         <span class="blinking-cursor">|</span>
