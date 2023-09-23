@@ -44,13 +44,11 @@ const submitForm = async () => {
       "LONOwLZJYS63ujYp5"
     );
 
-    console.log(response);
-
-    // if (response.status == 200) {
-    SessionStorage.clear();
-    SessionStorage.set("submission", true);
-    submitted.value = true;
-    // }
+    if (response.status == 200) {
+      SessionStorage.clear();
+      SessionStorage.set("submission", true);
+      submitted.value = true;
+    }
   } catch (err) {
     $q.notify({
       type: "negative",
@@ -94,7 +92,7 @@ watch(body, (newBody) => {
           :class="$q.dark.isActive ? '' : ''"
           :bordered="!$q.dark.isActive"
         >
-          <img src="/static/images/babypic.jpg" />
+          <img src="static/images/babypic.jpg" />
 
           <q-card-section class="q-pa-lg">
             <div class="text-bold text-body1">Hamzeh Abdallah</div>
@@ -106,8 +104,8 @@ watch(body, (newBody) => {
                 class=""
                 :src="
                   $q.dark.isActive
-                    ? '/static/signatureDarkMode.png'
-                    : '/static/signature.png'
+                    ? 'static/signatureDarkMode.png'
+                    : 'static/signature.png'
                 "
                 width="150"
                 alt="my_signature"
@@ -118,7 +116,7 @@ watch(body, (newBody) => {
           <q-card-section class="text-center">
             <img
               class="cursor-pointer"
-              src="/static/socials/instagram/igColor.png"
+              src="static/socials/instagram/igColor.png"
               width="60"
               height="60"
               alt="Instagram"
@@ -128,8 +126,8 @@ watch(body, (newBody) => {
               class="cursor-pointer"
               :src="
                 $q.dark.isActive
-                  ? '/static/socials/github/githubDarkMode.png'
-                  : '/static/socials/github/github.png'
+                  ? 'static/socials/github/githubDarkMode.png'
+                  : 'static/socials/github/github.png'
               "
               width="60"
               height="60"
@@ -138,7 +136,7 @@ watch(body, (newBody) => {
             />
             <img
               class="cursor-pointer"
-              src="/static/socials/linkedin/linkedinColor.png"
+              src="static/socials/linkedin/linkedinColor.png"
               width="60"
               height="60"
               alt="LinkedIn"
