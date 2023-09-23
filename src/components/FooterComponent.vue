@@ -50,7 +50,7 @@ const redirect = (platform) => {
     case "GitHub":
       window.open("https://github.com/hamzehab", "_blank_");
       break;
-    case "linkedin":
+    case "LinkedIn":
       window.open("https://www.linkedin.com/in/hamzeh-abdallah/", "_blank_");
       break;
     case "Gmail":
@@ -118,16 +118,16 @@ watchEffect(() => {
         @click="$router.push('/')"
       />
     </div>
-    <div class="row justify-between text-weight-medium text-h6">
+    <div class="row justify-between text-weight-medium text-body1">
       <div class="q-mt-md">
         <span
           class="q-mx-xl cursor-pointer"
           @click="$router.push('/experience')"
         >
-          Experience
+          EXPERIENCE
         </span>
         <span class="cursor-pointer" @click="$router.push('/projects')">
-          Projects
+          PROJECTS
         </span>
       </div>
       <div class="row q-mx-xl">
@@ -135,7 +135,7 @@ watchEffect(() => {
           class="cursor-pointer q-mt-md q-mr-lg"
           @click="$router.push('/contact')"
         >
-          Contact Me
+          CONTACT ME
         </span>
       </div>
     </div>
@@ -156,23 +156,23 @@ watchEffect(() => {
         />
       </div>
     </div>
-    <div class="text-weight-medium text-h6">
+    <div class="text-weight-medium text-body1 q-py-lg">
       <div class="text-center">
         <div
           class="cursor-pointer q-my-md"
           @click="$router.push('/experience')"
         >
-          Experience
+          EXPERIENCE
         </div>
         <div class="cursor-pointer q-my-md" @click="$router.push('/projects')">
-          Projects
+          PROJECTS
         </div>
         <div class="cursor-pointer q-my-md" @click="$router.push('/contact')">
-          Contact Me
+          CONTACT
         </div>
       </div>
     </div>
-    <div class="flex flex-center q-my-xl">
+    <div class="flex flex-center">
       <img
         class="cursor-pointer"
         width="170"
