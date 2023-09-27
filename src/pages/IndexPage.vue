@@ -148,71 +148,61 @@ watch(slide, () => {
     </q-dialog>
   </div>
 
-  <div class="gt-sm q-pa-md row justify-center text-h5">
-    <q-card flat bordered style="width: 70%; max-width: 70%">
-      <q-card-section horizontal>
-        <q-card-section class="q-my-md q-mx-lg">
-          <div class="text-center text-weight-bold text-grey-5 q-mb-md">
-            <div>
-              &#x1F44B; Hi everyone!! Firstly, I want to thank you for taking
-              the time to view my portfolio.
-            </div>
-            <div>
-              If you couldn't tell from the animation above, my name is Hamzeh
-              Abdallah.
-            </div>
-          </div>
-          <div class="q-my-lg">
-            I am 21 years old soon to be 22. I live at home with my mother and
-            father along with my brother and two sisters. A little more about
-            myself:
-          </div>
-
-          <q-list class="text-weight-regular">
-            <q-item>
-              <img
-                class="q-mr-md"
-                width="25"
-                height="25"
-                src="https://img.icons8.com/color/48/palestine.png"
-                alt="palestine_flag"
-              />
-              I am a Palestinian American but was born and raised in NJ
-            </q-item>
-            <q-item>
-              <div class="q-mr-sm">&#127891;</div>
-              I received my Bachelors Degree from Montclair State University and
-              graduated with a 3.919 GPA awarded with the title Summa Cum Laude
-            </q-item>
-            <q-item>
-              <div class="q-mr-sm">&#128187;</div>
-              I currently work as a software engineer at AYA Holdings Group,
-              where I collaborate with my team to develop and deploy a full
-              stack application.
-            </q-item>
-          </q-list>
-          <div
-            class="text-body2 cursor-pointer text-grey text-right"
-            @click="viewMore = true"
-          >
-            View More...
-          </div>
-        </q-card-section>
-
-        <q-img
-          class="col-5"
-          src="static/images/portrait.jpg"
-          style="width: 300px"
-        />
-      </q-card-section>
-      <!-- Needs better work -->
-    </q-card>
+  <div class="text-h5 text-center text-weight-bold text-grey-5 q-mb-md">
+    <div>
+      &#x1F44B; Hi everyone!! Firstly, I want to thank you for taking the time
+      to view my portfolio.
+    </div>
+    <div>
+      If you couldn't tell from the animation above, my name is Hamzeh Abdallah.
+    </div>
+  </div>
+  <div class="q-pa-md row justify-center q-gutter-x-xl text-h5 items-center">
+    <q-img
+      src="static/images/portrait.jpg"
+      style="width: 500px; height: 32vh; border-radius: 1rem"
+    />
+    <div style="width: 900px">
+      <div class="q-my-lg">
+        I am 21 years old soon to be 22. I live at home with my mother and
+        father along with my brother and two sisters. A little more about
+        myself:
+      </div>
+      <q-list class="text-weight-regular">
+        <q-item>
+          <img
+            class="q-mr-md"
+            width="25"
+            height="25"
+            src="https://img.icons8.com/color/48/palestine.png"
+            alt="palestine_flag"
+          />
+          I am a Palestinian American but was born and raised in NJ
+        </q-item>
+        <q-item>
+          <div class="q-mr-sm">&#127891;</div>
+          I received my Bachelors Degree from Montclair State University and
+          graduated with a 3.919 GPA awarded with the title Summa Cum Laude
+        </q-item>
+        <q-item>
+          <div class="q-mr-sm">&#128187;</div>
+          I currently work as a software engineer at AYA Holdings Group, where I
+          collaborate with my team to develop and deploy a full stack
+          application.
+        </q-item>
+      </q-list>
+      <div
+        class="text-body2 q-mt-lg cursor-pointer text-grey text-right"
+        @click="viewMore = true"
+      >
+        View More...
+      </div>
+    </div>
   </div>
 
-  <div class="q-py-md" />
   <SkillLogos />
 
-  <div class="q-pa-xl">
+  <div class="q-px-xl q-pt-xl">
     <div
       class="gt-xs text-weight-bolder text-h4 q-ml-xl q-pb-md"
       :class="$q.dark.isActive ? 'text-grey-8' : 'text-grey-6'"
@@ -262,7 +252,7 @@ watch(slide, () => {
           playing recently.
         </div>
       </div>
-      <div class="q-py-lg q-mx-xl" style="width: 400px">
+      <div class="q-py-lg q-mx-xl" style="width: 350px">
         <div class="text-h4">
           <img
             :src="
@@ -407,5 +397,6 @@ watch(slide, () => {
       </div>
     </div>
   </div>
+
   <FooterComponent />
 </template>

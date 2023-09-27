@@ -59,6 +59,10 @@ const redirect = (platform) => {
   }
 };
 
+const openPDF = () => {
+  window.open("static/Hamzeh Resume.pdf");
+};
+
 watchEffect(() => {
   const isActive = $q.dark.isActive;
 
@@ -120,12 +124,7 @@ watchEffect(() => {
     </div>
     <div class="row justify-between text-weight-medium text-body1">
       <div class="q-mt-md">
-        <span
-          class="q-mx-xl cursor-pointer"
-          @click="$router.push('/experience')"
-        >
-          EXPERIENCE
-        </span>
+        <span class="q-mx-xl cursor-pointer" @click="openPDF"> RESUME </span>
         <span class="cursor-pointer" @click="$router.push('/projects')">
           PROJECTS
         </span>
@@ -158,18 +157,13 @@ watchEffect(() => {
     </div>
     <div class="text-weight-medium text-body1 q-py-lg">
       <div class="text-center">
-        <div
-          class="cursor-pointer q-my-md"
-          @click="$router.push('/experience')"
-        >
-          EXPERIENCE
-        </div>
         <div class="cursor-pointer q-my-md" @click="$router.push('/projects')">
           PROJECTS
         </div>
         <div class="cursor-pointer q-my-md" @click="$router.push('/contact')">
           CONTACT
         </div>
+        <div class="cursor-pointer q-my-md" @click="openPDF">RESUME</div>
       </div>
     </div>
     <div class="flex flex-center">

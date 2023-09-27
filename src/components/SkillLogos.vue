@@ -106,7 +106,7 @@ watchEffect(() => {
 
 <template>
   <div
-    class="text-weight-bolder text-center text-h5 q-my-lg"
+    class="text-weight-bolder text-center text-h5 q-pt-xl"
     :class="$q.dark.isActive ? 'text-grey-8' : 'text-grey-6'"
   >
     <q-icon name="construction" />Technologies I have experience with ...
