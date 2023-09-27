@@ -1,8 +1,6 @@
 import LandingPage from "pages/IndexPage.vue";
 import ContactMe from "pages/ContactView.vue";
-import WorkExperience from "pages/ExperienceView.vue";
 import ProjectView from "pages/ProjectView.vue";
-import EducationView from "pages/EducationView.vue";
 
 const routes = [
   {
@@ -17,13 +15,6 @@ const routes = [
     component: ContactMe,
     meta: {
       title: "Contact Me",
-    },
-  },
-  {
-    path: "/experience",
-    component: WorkExperience,
-    meta: {
-      title: "Work Experience",
     },
   },
   {
