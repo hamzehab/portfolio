@@ -133,7 +133,7 @@ watch(slide, () => {
                   img-src="static/images/hsgrad.jpg"
                 />
                 <q-carousel-slide :name="5">
-                  <video style="width: 150%; height: inherit" controls autoplay>
+                  <video style="width: 100%; height: inherit" controls autoplay>
                     <source src="static/cgrad.MP4" type="video/mp4" />
                   </video>
                 </q-carousel-slide>
@@ -148,21 +148,22 @@ watch(slide, () => {
     </q-dialog>
   </div>
 
-  <div class="text-h5 text-center text-weight-bold text-grey-5 q-mb-md">
-    <div>
-      &#x1F44B; Hi everyone!! Firstly, I want to thank you for taking the time
-      to view my portfolio.
-    </div>
-    <div>
-      If you couldn't tell from the animation above, my name is Hamzeh Abdallah.
-    </div>
-  </div>
   <div class="q-pa-md row justify-center q-gutter-x-xl text-h5 items-center">
     <q-img
       src="static/images/portrait.jpg"
-      style="width: 500px; height: 32vh; border-radius: 1rem"
+      style="width: 500px; height: 45vh; border-radius: 1rem"
     />
-    <div style="width: 900px">
+    <div style="max-width: 1000px">
+      <div class="text-h5 text-center text-weight-bold text-grey-5 q-my-lg">
+        <div>
+          &#x1F44B; Hi everyone!! Firstly, I want to thank you for taking the
+          time to view my portfolio.
+        </div>
+        <div>
+          If you couldn't tell from the animation above, my name is Hamzeh
+          Abdallah.
+        </div>
+      </div>
       <div class="q-my-lg">
         I am 21 years old soon to be 22. I live at home with my mother and
         father along with my brother and two sisters. A little more about

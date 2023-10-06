@@ -1,28 +1,43 @@
-import LandingPage from "pages/IndexPage.vue";
-import ContactMe from "pages/ContactView.vue";
-import ProjectView from "pages/ProjectView.vue";
-
 const routes = [
   {
     path: "/",
-    component: LandingPage,
+    component: () => import("pages/IndexPage.vue"),
     meta: {
       title: "Meet Hamzeh!",
     },
   },
   {
     path: "/contact",
-    component: ContactMe,
+    component: () => import("pages/ContactView.vue"),
     meta: {
       title: "Contact Me",
     },
   },
   {
     path: "/projects",
-    component: ProjectView,
-    meta: {
-      title: "Projects",
-    },
+    children: [
+      {
+        path: "",
+        component: () => import("pages/ProjectView.vue"),
+        meta: {
+          title: "Projects",
+        },
+      },
+      // {
+      //   path: "Project1",
+      //   component: () => import("pages/ProjectView.vue"),
+      //   meta: {
+      //     title: "Projects",
+      //   },
+      // },
+      // {
+      //   path: "Project2",
+      //   component: () => import("pages/ProjectView.vue"),
+      //   meta: {
+      //     title: "Projects",
+      //   },
+      // }
+    ],
   },
 
   // Always leave this as last one,
