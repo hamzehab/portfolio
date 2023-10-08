@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch } from "vue";
+import { onMounted, ref, watch } from "vue";
 import NavBar from "components/NavBar.vue";
 import FooterComponent from "src/components/FooterComponent.vue";
 import emailjs from "@emailjs/browser";
@@ -77,6 +77,45 @@ watch(subject, (newSubject) => {
 watch(body, (newBody) => {
   sessionStorage.setItem("body", newBody);
 });
+
+onMounted(() => {
+  const card = document.querySelector(".card");
+  const form = document.querySelectorAll(".form");
+  const button = document.querySelector(".button");
+
+  const observerCard = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      entry.target.classList.toggle("animated", entry.isIntersecting);
+      entry.target.classList.toggle("bounceInLeft", entry.isIntersecting);
+      if (entry.isIntersecting) observerCard.unobserve(entry.target);
+    });
+  });
+
+  const observerForm = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle("animated", entry.isIntersecting);
+        entry.target.classList.toggle("bounceInDown", entry.isIntersecting);
+        if (entry.isIntersecting) observerForm.unobserve(entry.target);
+      });
+    },
+    { rootMargin: "-190px" }
+  );
+
+  const observerButton = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      entry.target.classList.toggle("animated", entry.isIntersecting);
+      entry.target.classList.toggle("bounceInUp", entry.isIntersecting);
+      if (entry.isIntersecting) observerButton.unobserve(entry.target);
+    });
+  });
+
+  observerCard.observe(card);
+  form.forEach((entry) => {
+    observerForm.observe(entry);
+  });
+  observerButton.observe(button);
+});
 </script>
 
 <template>
@@ -84,118 +123,116 @@ watch(body, (newBody) => {
   <div class="lt-sm" style="padding-bottom: 5rem" />
   <div class="gt-xs" style="padding-bottom: 15rem" />
 
-  <div class="q-ma-md row justify-center q-gutter-y-xl items-center">
-    <transition appear enter-active-class="animated bounceInLeft">
-      <div>
-        <q-card
-          class="my-card"
-          :class="$q.dark.isActive ? '' : ''"
-          :bordered="!$q.dark.isActive"
-        >
-          <img src="static/images/babypic.jpg" />
+  <div class="q-ma-md row justify-center items-center">
+    <div class="card q-mb-xl">
+      <q-card
+        class="my-card"
+        :class="$q.dark.isActive ? '' : ''"
+        :bordered="!$q.dark.isActive"
+      >
+        <img src="static/images/babypic.jpg" />
 
-          <q-card-section class="q-pa-lg">
-            <div class="text-bold text-body1">Hamzeh Abdallah</div>
-            <div class="text-body2 q-py-sm">
-              Software Engineer, Full Stack Developer, and Video Gamer
-            </div>
-            <div class="row justify-end">
-              <img
-                class=""
-                :src="
-                  $q.dark.isActive
-                    ? 'static/signatureDarkMode.png'
-                    : 'static/signature.png'
-                "
-                width="150"
-                alt="my_signature"
-              />
-            </div>
-          </q-card-section>
-          <q-separator />
-          <q-card-section class="text-center">
+        <q-card-section class="q-pa-lg">
+          <div class="text-bold text-body1">Hamzeh Abdallah</div>
+          <div class="text-body2 q-py-sm">
+            Software Engineer, Full Stack Developer, and Video Gamer
+          </div>
+          <div class="row justify-end">
             <img
-              class="cursor-pointer"
-              src="static/socials/instagram/igColor.png"
-              width="60"
-              height="60"
-              alt="Instagram"
-              @click="redirect('https://www.instagram.com/hazmeh_/')"
-            />
-            <img
-              class="cursor-pointer"
+              class=""
               :src="
                 $q.dark.isActive
-                  ? 'static/socials/github/githubDarkMode.png'
-                  : 'static/socials/github/github.png'
+                  ? 'static/signatureDarkMode.png'
+                  : 'static/signature.png'
               "
-              width="60"
-              height="60"
-              alt="GitHub"
-              @click="redirect('https://github.com/hamzehab')"
+              width="150"
+              alt="my_signature"
             />
-            <img
-              class="cursor-pointer"
-              src="static/socials/linkedin/linkedinColor.png"
-              width="60"
-              height="60"
-              alt="LinkedIn"
-              @click="redirect('https://www.linkedin.com/in/hamzeh-abdallah/')"
+          </div>
+        </q-card-section>
+        <q-separator />
+        <q-card-section class="text-center">
+          <img
+            class="cursor-pointer"
+            src="static/socials/instagram/igColor.png"
+            width="60"
+            height="60"
+            alt="Instagram"
+            @click="redirect('https://www.instagram.com/hazmeh_/')"
+          />
+          <img
+            class="cursor-pointer"
+            :src="
+              $q.dark.isActive
+                ? 'static/socials/github/githubDarkMode.png'
+                : 'static/socials/github/github.png'
+            "
+            width="60"
+            height="60"
+            alt="GitHub"
+            @click="redirect('https://github.com/hamzehab')"
+          />
+          <img
+            class="cursor-pointer"
+            src="static/socials/linkedin/linkedinColor.png"
+            width="60"
+            height="60"
+            alt="LinkedIn"
+            @click="redirect('https://www.linkedin.com/in/hamzeh-abdallah/')"
+          />
+        </q-card-section>
+        <q-separator />
+        <q-card-section class="q-mx-md text-body2">
+          <div class="q-py-sm">
+            <q-icon
+              name="email"
+              class="q-mr-xl"
+              :color="$q.dark.isActive ? 'amber' : ''"
             />
-          </q-card-section>
-          <q-separator />
-          <q-card-section class="q-mx-md text-body2">
-            <div class="q-py-sm">
-              <q-icon
-                name="email"
-                class="q-mr-xl"
-                :color="$q.dark.isActive ? 'amber' : ''"
-              />
-              <div class="lt-sm">hamzehhabdallah@gmail.com</div>
-              <span class="gt-xs">hamzehhabdallah@gmail.com</span>
-            </div>
-            <div class="q-py-sm">
-              <q-icon
-                name="phone"
-                class="q-mr-xl"
-                :color="$q.dark.isActive ? 'amber' : ''"
-              />
-              <div class="lt-sm">+1 (201) 264 7063</div>
-              <span class="gt-xs">+1 (201) 264 7063</span>
-            </div>
-            <div class="q-py-sm">
-              <q-icon
-                name="home"
-                class="q-mr-xl"
-                :color="$q.dark.isActive ? 'amber' : ''"
-              />
-              <div class="lt-sm">Ridgewood, NJ</div>
-              <span class="gt-xs">Ridgewood, NJ</span>
-            </div>
-          </q-card-section>
-        </q-card>
-      </div>
-    </transition>
-
+            <div class="lt-sm">hamzehhabdallah@gmail.com</div>
+            <span class="gt-xs">hamzehhabdallah@gmail.com</span>
+          </div>
+          <div class="q-py-sm">
+            <q-icon
+              name="phone"
+              class="q-mr-xl"
+              :color="$q.dark.isActive ? 'amber' : ''"
+            />
+            <div class="lt-sm">+1 (201) 264 7063</div>
+            <span class="gt-xs">+1 (201) 264 7063</span>
+          </div>
+          <div class="q-py-sm">
+            <q-icon
+              name="home"
+              class="q-mr-xl"
+              :color="$q.dark.isActive ? 'amber' : ''"
+            />
+            <div class="lt-sm">Ridgewood, NJ</div>
+            <span class="gt-xs">Ridgewood, NJ</span>
+          </div>
+        </q-card-section>
+      </q-card>
+    </div>
     <div class="gt-xs" style="margin-right: 128px" />
-    <transition appear enter-active-class="animated bounceInDown">
-      <div style="max-width: 100%; width: 500px">
-        <div>
-          <div
-            class="text-h5 text-weight-bolder"
-            :class="$q.dark.isActive ? 'text-amber' : 'text-indigo-14'"
-          >
-            Asking Costs Nothing
-          </div>
-          <div
-            class="text-body1 q-pt-sm"
-            :class="$q.dark.isActive ? 'text-grey' : 'text-grey-9'"
-          >
-            Don't hesitate to get in touch with me! You can reach out through
-            Instagram, GitHub, LinkedIn, drop me an email, or simply use the
-            contact form here
-          </div>
+
+    <div style="max-width: 100%; width: 500px">
+      <div>
+        <div
+          class="form text-h5 text-weight-bolder"
+          :class="$q.dark.isActive ? 'text-amber' : 'text-indigo-14'"
+        >
+          Asking Costs Nothing
         </div>
+        <div
+          class="form text-body1 q-pt-sm"
+          :class="$q.dark.isActive ? 'text-grey' : 'text-grey-9'"
+        >
+          Don't hesitate to get in touch with me! You can reach out through
+          Instagram, GitHub, LinkedIn, drop me an email, or simply use the
+          contact form here
+        </div>
+      </div>
+      <div class="form">
         <q-input
           class="q-my-lg"
           v-model="name"
@@ -224,22 +261,21 @@ watch(body, (newBody) => {
           label="Your Message"
           stack-label
         />
-        <transition appear enter-active-class="animated bounceInUp">
-          <div class="text-center q-mt-xl">
-            <q-btn
-              rounded
-              push
-              :loading="loading"
-              class="bg-deep-color-13 q-py-sm"
-              style="background-color: #4046ff; color: white; width: 300px"
-              :label="submitted ? 'Already submitted form' : 'Submit'"
-              :disable="submitted"
-              @click="submitForm"
-            />
-          </div>
-        </transition>
       </div>
-    </transition>
+
+      <div class="text-center q-mt-xl">
+        <q-btn
+          rounded
+          push
+          :loading="loading"
+          class="button bg-deep-color-13 q-py-sm"
+          style="background-color: #4046ff; color: white; width: 300px"
+          :label="submitted ? 'Already submitted form' : 'Submit'"
+          :disable="submitted"
+          @click="submitForm"
+        />
+      </div>
+    </div>
   </div>
 
   <div class="gt-xs" style="padding-bottom: 15rem" />

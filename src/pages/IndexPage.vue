@@ -1,10 +1,15 @@
 <script setup>
-import { ref, watch } from "vue";
+import { onMounted, ref, watch } from "vue";
+import { useQuasar } from "quasar";
+
 import NavBar from "components/NavBar.vue";
 import FooterComponent from "components/FooterComponent.vue";
 import SkillLogos from "components/SkillLogos.vue";
 import TypeAnimation from "components/TypeAnimation.vue";
 
+import "animate.css";
+
+const $q = useQuasar();
 const viewMore = ref(false);
 
 const autoplay = ref(true);
@@ -25,6 +30,23 @@ watch(slide, () => {
     }, 2750);
   }
 });
+
+onMounted(() => {
+  const animations = document.querySelectorAll(".animation");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      entry.target.classList.toggle("animated", entry.isIntersecting);
+      entry.target.classList.toggle("fadeIn", entry.isIntersecting);
+      entry.target.classList.toggle("slow", entry.isIntersecting);
+      if (entry.isIntersecting) observer.unobserve(entry.target);
+    });
+  });
+
+  animations.forEach((animation) => {
+    observer.observe(animation);
+  });
+});
 </script>
 
 <template>
@@ -33,7 +55,7 @@ watch(slide, () => {
 
   <TypeAnimation />
   <div class="q-pa-md">
-    <q-dialog v-model="viewMore">
+    <q-dialog v-model="viewMore" :full-width="$q.platform.is.mobile">
       <q-card flat bordered style="border-radius: 1rem">
         <q-card-section>
           <div class="text-h6">More About Me</div>
@@ -46,7 +68,7 @@ watch(slide, () => {
           style="max-height: 70vh"
           class="text-body1 scroll q-my-sm"
         >
-          <div class="q-mx-xl">
+          <div :class="$q.platform.is.mobile ? '' : 'q-mx-xl'">
             <div class="q-mb-lg" id="born">
               Let's start from the day I was born which would be October 13,
               2001 at St. Joseph's Hospital in Paterson, New Jersey. From this
@@ -150,11 +172,14 @@ watch(slide, () => {
 
   <div class="q-pa-md row justify-center q-gutter-x-xl text-h5 items-center">
     <q-img
+      class="animation"
       src="static/images/portrait.jpg"
       style="width: 500px; height: 45vh; border-radius: 1rem"
     />
     <div style="max-width: 1000px">
-      <div class="text-h5 text-center text-weight-bold text-grey-5 q-my-lg">
+      <div
+        class="animation text-h5 text-center text-weight-bold text-grey-5 q-my-lg"
+      >
         <div>
           &#x1F44B; Hi everyone!! Firstly, I want to thank you for taking the
           time to view my portfolio.
@@ -164,13 +189,13 @@ watch(slide, () => {
           Abdallah.
         </div>
       </div>
-      <div class="q-my-lg">
+      <div class="animation q-my-lg">
         I am 21 years old soon to be 22. I live at home with my mother and
         father along with my brother and two sisters. A little more about
         myself:
       </div>
       <q-list class="text-weight-regular">
-        <q-item>
+        <q-item class="animation">
           <img
             class="q-mr-md"
             width="25"
@@ -180,12 +205,12 @@ watch(slide, () => {
           />
           I am a Palestinian American but was born and raised in NJ
         </q-item>
-        <q-item>
+        <q-item class="animation">
           <div class="q-mr-sm">&#127891;</div>
           I received my Bachelors Degree from Montclair State University and
           graduated with a 3.919 GPA awarded with the title Summa Cum Laude
         </q-item>
-        <q-item>
+        <q-item class="animation">
           <div class="q-mr-sm">&#128187;</div>
           I currently work as a software engineer at AYA Holdings Group, where I
           collaborate with my team to develop and deploy a full stack
@@ -205,13 +230,13 @@ watch(slide, () => {
 
   <div class="q-px-xl q-pt-xl">
     <div
-      class="gt-xs text-weight-bolder text-h4 q-ml-xl q-pb-md"
+      class="animation gt-xs text-weight-bolder text-h4 q-ml-xl q-pb-md"
       :class="$q.dark.isActive ? 'text-grey-8' : 'text-grey-6'"
     >
       Hobbies
     </div>
     <div
-      class="lt-sm text-center text-weight-bolder text-h4 q-pb-md"
+      class="animation lt-sm text-center text-weight-bolder text-h4 q-pb-md"
       :class="$q.dark.isActive ? 'text-grey-8' : 'text-grey-6'"
     >
       Hobbies
@@ -222,8 +247,9 @@ watch(slide, () => {
       :class="$q.dark.isActive ? 'text-white' : ''"
     >
       <div class="q-py-lg q-mx-xl" style="width: 400px">
-        <div class="text-h4">
+        <div class="animation">
           <img
+            class="animation"
             :src="
               $q.dark.isActive
                 ? 'static/hobbies/gamesDM.png'
@@ -239,12 +265,12 @@ watch(slide, () => {
           />
         </div>
         <div
-          class="text-h6 q-mx-md"
+          class="animation text-h6 q-mx-md"
           :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
         >
           Video Games
         </div>
-        <div class="text-caption">
+        <div class="animation text-caption">
           I've been a gamer since I was three, starting with Nintendo's Mario
           games, and I've now transitioned into a dedicated PC gamer. Whether it
           be with family and friends or solo sessions I always seem to enjoy my
@@ -254,7 +280,7 @@ watch(slide, () => {
         </div>
       </div>
       <div class="q-py-lg q-mx-xl" style="width: 350px">
-        <div class="text-h4">
+        <div class="animation">
           <img
             :src="
               $q.dark.isActive
@@ -271,12 +297,12 @@ watch(slide, () => {
           />
         </div>
         <div
-          class="text-h6 q-mx-md"
+          class="animation text-h6 q-mx-md"
           :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
         >
           Basketball
         </div>
-        <div class="text-caption">
+        <div class="animation text-caption">
           Out of all the sports out there, I believe basketball to be the one I
           enjoy the most. Most if not all my PE classes throughout elementary,
           middle, and high school my classmates and I would play basketball.
@@ -286,7 +312,7 @@ watch(slide, () => {
       </div>
 
       <div class="q-py-lg q-mx-xl" style="width: 400px">
-        <div class="text-h4">
+        <div class="animation">
           <img
             :src="
               $q.dark.isActive
@@ -303,18 +329,18 @@ watch(slide, () => {
           />
         </div>
         <div
-          class="text-h6 q-mx-md"
+          class="animation text-h6 q-mx-md"
           :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
         >
           Family and Friends
         </div>
         <span
-          class="text-caption text-weight-bolder"
+          class="animation text-caption text-weight-bolder"
           :class="$q.dark.isActive ? 'text-amber' : 'text-grey'"
         >
           I prefer real talk over small talk
         </span>
-        <div class="text-caption">
+        <div class="animation text-caption">
           My family and friends are everything to me in my life. Without them I
           would not be where I am today. Whenever I have free time I enjoy
           spending that time with those closest to me and engage in meaningful
@@ -322,7 +348,7 @@ watch(slide, () => {
         </div>
       </div>
       <div class="q-py-lg q-mx-xl" style="width: 400px">
-        <div class="text-h4">
+        <div class="animation">
           <img
             class="q-mr-md"
             :src="
@@ -354,12 +380,12 @@ watch(slide, () => {
           />
         </div>
         <div
-          class="text-h6 q-mx-md"
+          class="animation text-h6 q-mx-md"
           :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
         >
           Outdoors or Indoors
         </div>
-        <div class="text-captions">
+        <div class="animation text-caption">
           As a person, I don't have much of a preference for having a good time.
           I am always down for anything as long as we're enjoying each other's
           company. Anything outdoors such as bowling, hiking, a walk on the
@@ -367,7 +393,7 @@ watch(slide, () => {
         </div>
       </div>
       <div class="q-py-xl q-mx-xl" style="width: 400px">
-        <div class="text-h4">
+        <div class="animation">
           <img
             :src="
               $q.dark.isActive
@@ -384,12 +410,12 @@ watch(slide, () => {
           />
         </div>
         <div
-          class="text-h6 q-mx-md"
+          class="animation text-h6 q-mx-md"
           :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
         >
           Music
         </div>
-        <div class="text-caption">
+        <div class="animation text-caption">
           In my free time or even when I am busy with tasks, music is something
           I look forward to and never fails to lift me up or make things
           slightly better. It sets a mood which allows me to unwind after a

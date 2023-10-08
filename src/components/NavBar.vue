@@ -4,10 +4,9 @@ import { useQuasar } from "quasar";
 import "animate.css";
 
 const $q = useQuasar();
-$q.dark.set(true);
 
 const toggleDarkMode = () => {
-  $q.dark.set(!$q.dark.isActive);
+  $q.dark.toggle();
 };
 
 const toggleMenu = ref(false);
