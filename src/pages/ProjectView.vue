@@ -9,7 +9,7 @@ import FooterComponent from "src/components/FooterComponent.vue";
 
   <div class="row justify-evenly items-center q-mx-xl">
     <div>
-      <q-skeleton width="1000px" height="600px" square />
+      <img src="static/portfolio.gif" style="width: 1200px" />
       <div class="text-center text-caption text-grey-8 q-my-md">
         Figure 1: Portfolio Website Preview
       </div>
@@ -54,14 +54,37 @@ import FooterComponent from "src/components/FooterComponent.vue";
         </q-breadcrumbs-el>
       </q-breadcrumbs>
       <div class="text-h6 text-weight-regular">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Volutpat lacus
-        laoreet non curabitur gravida arcu ac tortor. Sit amet risus nullam eget
-        felis eget nunc lobortis mattis. Neque viverra justo nec ultrices dui
-        sapien eget. Nibh sit amet commodo nulla. Id diam vel quam elementum.
-        Orci ac auctor augue mauris augue. Massa tempor nec feugiat nisl pretium
-        fusce id velit. Pretium nibh ipsum consequat nisl vel pretium. Fermentum
-        iaculis eu non diam phasellus vestibulum.
+        <div>
+          My personal website, the centerpiece of my portfolio, serves as a
+          canvas to express myself digitally by displaying my personality and
+          showcasing my skills and experiences. It is a platform, a place where
+          I share my growth as a human being and journey as a software engineer.
+        </div>
+        <div class="q-my-lg">
+          Before the process of development and producing any code, I needed to
+          choose a tech stack that would enable me to create a modern and
+          immersive user experience. The primary tools in this stack are Vue.js
+          where it was chosen for its simplicity and versatility. Furthermore
+          Quasar, built on top of Vue.js, extends my development capabilities
+          further by providing a rich set of pre-built UI components, custom CSS
+          styling, and a responsive design system. Not only are these great
+          tools to flesh out a website but they are also most familiar to me
+          honed through my current role as a software engineer.
+        </div>
+        <div>
+          The journey of creating my personal website presented several
+          technical challenges, each of which contributed to my growth as a
+          developer. One particularly intriguing challenge involved implementing
+          viewport-based animations. I aimed to enhance user engagement by
+          triggering animations only when elements entered the viewport.
+          Achieving this effect required a deep dive into Vue.js directives and
+          the utilization of Intersection Observer APIs. Navigating the
+          complexities of scroll events and element visibility checks demanded a
+          meticulous approach. However, these challenges, though technically
+          demanding, ultimately led to the creation of a website that offers a
+          captivating and seamless user experience, exemplifying my dedication
+          to pushing the boundaries of web development.
+        </div>
       </div>
     </div>
   </div>
@@ -128,7 +151,7 @@ import FooterComponent from "src/components/FooterComponent.vue";
   <div class="lt-xl" style="padding-bottom: 8rem" />
   <div class="row justify-evenly items-center q-mx-xl">
     <div>
-      <q-skeleton width="1000px" height="600px" square />
+      <img height="600px" src="static/shuttlebus.png" />
       <div class="text-center text-caption text-grey-8 q-my-md">
         Figure 3: ShuttleBus Preview
       </div>
