@@ -219,7 +219,7 @@ onMounted(() => {
       <div>
         <div
           class="form text-h5 text-weight-bolder"
-          :class="$q.dark.isActive ? 'text-amber' : 'text-indigo-14'"
+          :class="$q.dark.isActive ? 'text-amber' : 'text-indigo'"
         >
           Asking Costs Nothing
         </div>
@@ -268,8 +268,8 @@ onMounted(() => {
           rounded
           push
           :loading="loading"
-          class="button bg-deep-color-13 q-py-sm"
-          style="background-color: #4046ff; color: white; width: 300px"
+          class="button bg-indigo q-py-sm"
+          style="color: white; width: 300px"
           :label="submitted ? 'Already submitted form' : 'Submit'"
           :disable="submitted"
           @click="submitForm"

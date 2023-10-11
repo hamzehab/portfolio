@@ -76,12 +76,21 @@ watchEffect(() => {
       </div>
       <div class="lt-md">
         <div class="row justify-between">
-          <q-icon
-            class="cursor-pointer"
-            name="menu"
-            size="41px"
-            @click="toggleMenu = !toggleMenu"
-          />
+          <div class="row">
+            <q-icon
+              class="cursor-pointer"
+              name="menu"
+              size="41px"
+              @click="toggleMenu = !toggleMenu"
+            />
+            <img
+              class="cursor-pointer q-ml-lg"
+              width="85"
+              height="30"
+              :src="mainLogo"
+              @click="$router.push('/')"
+            />
+          </div>
           <q-icon
             class="q-mt-sm q-ml-md cursor-pointer"
             :class="$q.dark.isActive ? 'text-white' : 'text-black'"
@@ -101,15 +110,6 @@ watchEffect(() => {
         >
           <div v-if="toggleMenu" class="text-center menu-contents">
             <div>
-              <div class="flex flex-center q-pb-md">
-                <img
-                  class="cursor-pointer"
-                  width="85"
-                  height="30"
-                  :src="mainLogo"
-                  @click="$router.push('/')"
-                />
-              </div>
               <div
                 class="q-pa-lg q-mx-*"
                 :class="$q.dark.isActive ? 'nav-link' : 'nav-link-LM'"

@@ -61,6 +61,7 @@ const logos = {
       src: "static/logos/vue-js.png",
       alt: "Vue.js",
     },
+    { src: "/favicon.ico", alt: "Quasar" },
     {
       src: "",
       alt: "Flask",
@@ -97,11 +98,11 @@ const logos = {
 watchEffect(() => {
   const isActive = $q.dark.isActive;
   if (isActive) {
-    logos["Frameworks & Libraries"][1].src = "static/logos/flaskDM.png";
+    logos["Frameworks & Libraries"][2].src = "static/logos/flaskDM.png";
     logos["Developer Tools"][1].src =
       "static/socials/github/githubDarkMode.png";
   } else {
-    logos["Frameworks & Libraries"][1].src = "static/logos/flask.png";
+    logos["Frameworks & Libraries"][2].src = "static/logos/flask.png";
     logos["Developer Tools"][1].src = "static/socials/github/github.png";
   }
 });
