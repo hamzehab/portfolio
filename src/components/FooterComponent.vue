@@ -124,14 +124,24 @@ watchEffect(() => {
     </div>
     <div class="row justify-between text-weight-medium text-body1">
       <div class="q-mt-md">
-        <span class="q-mx-xl cursor-pointer" @click="openPDF"> RESUME </span>
-        <span class="cursor-pointer" @click="$router.push('/projects')">
+        <span
+          class="q-mx-xl"
+          :class="$q.dark.isActive ? 'footer-links-dm' : 'footer-links-lm'"
+          @click="openPDF"
+        >
+          RESUME
+        </span>
+        <span
+          :class="$q.dark.isActive ? 'footer-links-dm' : 'footer-links-lm'"
+          @click="$router.push('/projects')"
+        >
           PROJECTS
         </span>
       </div>
       <div class="row q-mx-xl">
         <span
-          class="cursor-pointer q-mt-md q-mr-lg"
+          class="q-mt-md q-mr-lg"
+          :class="$q.dark.isActive ? 'footer-links-dm' : 'footer-links-lm'"
           @click="$router.push('/contact')"
         >
           CONTACT ME
@@ -157,13 +167,27 @@ watchEffect(() => {
     </div>
     <div class="text-weight-medium text-body1 q-py-lg">
       <div class="text-center">
-        <div class="cursor-pointer q-my-md" @click="$router.push('/projects')">
+        <div
+          class="q-my-md"
+          :class="$q.dark.isActive ? 'text-amber' : 'text-indigo'"
+          @click="$router.push('/projects')"
+        >
           PROJECTS
         </div>
-        <div class="cursor-pointer q-my-md" @click="$router.push('/contact')">
+        <div
+          class="q-my-md"
+          :class="$q.dark.isActive ? 'text-amber' : 'text-indigo'"
+          @click="$router.push('/contact')"
+        >
           CONTACT
         </div>
-        <div class="cursor-pointer q-my-md" @click="openPDF">RESUME</div>
+        <div
+          class="q-my-md"
+          :class="$q.dark.isActive ? 'text-amber' : 'text-indigo'"
+          @click="openPDF"
+        >
+          RESUME
+        </div>
       </div>
     </div>
     <div class="flex flex-center">

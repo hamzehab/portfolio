@@ -85,7 +85,7 @@
   z-index: 9999;
 }
 .custom-navbar {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(211, 211, 211, 0.64);
   z-index: 9999;
 }
 .nav-link:hover {
@@ -119,4 +119,26 @@
 }
 .q-field__control {
   color: #4046ff;
+}
+
+.live-demo:hover {
+  cursor: pointer;
+  color: $amber;
+  font-size: 105%;
+}
+
+.demo-lm:hover {
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 105%;
+}
+
+.footer-links-dm:hover {
+  cursor: pointer;
+  color: $amber;
+}
+
+.footer-links-lm:hover {
+  cursor: pointer;
+  color: $indigo;
 }
