@@ -217,6 +217,17 @@ onMounted(() => {
           captivating and seamless user experience, exemplifying my dedication
           to pushing the boundaries of web development.
         </div>
+        <div class="fade-in q-mt-lg">
+          My project has been carefully optimized to deliver a seamless user
+          experience across devices including mobile and desktop platforms. By
+          using a responsive web design, the website dynamically changes its
+          layout and style to match a variety of screen sizes, ensuring that it
+          looks and works flawlessly on smartphones, tablets, laptops, and
+          larger desktop monitors. This thoughtful approach to mobile and
+          desktop optimization reflects a commitment to accessibility and
+          usability, and demonstrates a commitment to providing a robust user
+          experience regardless of the devices used to access the site
+        </div>
 
         <q-breadcrumbs
           separator="|"

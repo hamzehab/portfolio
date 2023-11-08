@@ -31,10 +31,10 @@ const submitForm = async () => {
 
   try {
     const form = {
-      from_name: name.value,
-      message: body.value,
-      subject: subject.value,
-      email: email.value,
+      from_name: name.value.trim(),
+      message: body.value.trim(),
+      subject: subject.value.trim(),
+      email: email.value.trim(),
     };
 
     const response = await emailjs.send(
@@ -235,14 +235,14 @@ onMounted(() => {
       <div class="form">
         <q-input
           class="q-my-lg"
-          v-model="name"
+          v-model.trim="name"
           type="text"
           label="Preferred Name"
           stack-label
         />
         <q-input
           class="q-my-lg"
-          v-model="email"
+          v-model.trim="email"
           type="text"
           label="Email"
           stack-label
@@ -250,14 +250,14 @@ onMounted(() => {
         <q-input
           class="q-my-lg"
           type="text"
-          v-model="subject"
+          v-model.trim="subject"
           label="Subject"
           stack-label
         />
         <q-input
           class="q-my-lg"
           type="textarea"
-          v-model="body"
+          v-model.trim="body"
           label="Your Message"
           stack-label
         />
