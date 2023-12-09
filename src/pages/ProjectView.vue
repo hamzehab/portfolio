@@ -315,11 +315,15 @@ onMounted(() => {
         </q-breadcrumbs>
       </div>
       <div class="slide-right">
-        <q-skeleton
-          class="fade-in"
-          :style="$q.platform.is.mobile ? 'width: 100%' : 'width: 900px'"
-          height="600px"
-          square
+        <img
+          class="fade-in gt-sm"
+          src="static/unlimiteddrinks.gif"
+          style="width: 900px"
+        />
+        <img
+          class="fade-in lt-md"
+          src="static/unlimiteddrinks.gif"
+          style="width: 100%"
         />
         <div class="fade-in text-center text-caption text-grey-8 q-my-md">
           Figure 2: Unlimited Drinks Preview
@@ -365,20 +369,55 @@ onMounted(() => {
             src="static/logos/vue-js.png"
             alt="HTML Logo"
           />
-          <span class="q-pl-sm">PHP</span>
+          <span class="q-pl-sm">Vue.js</span>
         </q-breadcrumbs-el>
         <q-breadcrumbs-el>
           <img width="25" height="25" src="/favicon.ico" alt="Quasar Logo" />
-          <span class="q-pl-sm">MySQL</span>
+          <span class="q-pl-sm">Quasar</span>
         </q-breadcrumbs-el>
       </q-breadcrumbs>
-      <div class="fade-in text-body1 text-weight-medium">
-        The Unlimited Drinks E-commerce Website is an innovative online platform
-        designed to revolutionize the way students access beverages while living
-        on campus. It offers a cost-effective alternative to vending machines by
-        allowing students to order a variety of beverages, including carbonated
-        drinks, energy drinks, juices, and more, in bulk and have them
-        conveniently delivered to their dormitory doors.
+      <div class="text-body1 text-weight-medium">
+        <div class="fade-in q-mt-lg">
+          The Unlimited Drinks E-commerce Website is a groundbreaking online
+          platform designed to revolutionize the way students access beverages
+          while living on campus. The platform serves as a cost-effective
+          alternative to traditional vending machines by allowing students to
+          order a variety of beverages, including carbonated drinks, energy
+          drinks, juices, and more, in bulk. The convenience factor is further
+          elevated by offering door-to-door delivery directly to their
+          dormitories.
+        </div>
+        <div class="fade-in q-mt-lg">
+          Key functionalities have been integrated to enhance the overall user
+          experience. Auth0 authentication is implemented for user login and
+          credentials, ensuring a secure and streamlined process. Users logging
+          in with Auth0 are prompted to set up their accounts if they haven't
+          done so, ensuring that only authenticated users can access and utilize
+          the platform. However, users are free to use the platform without
+          creating an account other than when needing to checkout an order.
+        </div>
+        <div class="fade-in q-mt-lg">
+          The payment process is facilitated through the integration of Stripe,
+          a secure payment gateway, providing users with a reliable and
+          efficient transaction experience. Users have the capability to view
+          their order history, edit account information, and manage multiple
+          addresses within their accounts. The platform's flexibility is evident
+          in the feature that allows users to add or delete addresses as needed.
+        </div>
+        <div class="fade-in q-mt-lg">
+          To maintain the integrity of the review system, the platform enforces
+          a one-review-per-item policy. This not only encourages authentic and
+          thoughtful reviews but also prevents misuse or spamming of the review
+          system.
+        </div>
+        <div class="fade-in q-mt-lg">
+          In conclusion, the Unlimited Drinks E-commerce Website is designed
+          with a focus on user convenience, security, and satisfaction. Its
+          features and practices make it a reliable and user-friendly platform
+          for on-campus beverage needs, and its commitment to continuous
+          improvement ensures it stays at the forefront of innovation in the
+          e-commerce space.
+        </div>
       </div>
       <q-breadcrumbs
         separator="|"
@@ -525,15 +564,53 @@ onMounted(() => {
           <span class="q-pl-sm">MySQL</span>
         </q-breadcrumbs-el>
       </q-breadcrumbs>
-      <div class="fade-in text-body1 text-weight-medium">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Volutpat lacus
-        laoreet non curabitur gravida arcu ac tortor. Sit amet risus nullam eget
-        felis eget nunc lobortis mattis. Neque viverra justo nec ultrices dui
-        sapien eget. Nibh sit amet commodo nulla. Id diam vel quam elementum.
-        Orci ac auctor augue mauris augue. Massa tempor nec feugiat nisl pretium
-        fusce id velit. Pretium nibh ipsum consequat nisl vel pretium. Fermentum
-        iaculis eu non diam phasellus vestibulum.
+      <div class="text-body1 text-weight-medium">
+        <div class="fade-in q-mt-lg">
+          The Shuttlebus System stands as a collaborative achievement, developed
+          by a dedicated team of six individuals for a university project. This
+          comprehensive application addresses the transportation needs of
+          students, faculty, and campus visitors, offering an intuitive
+          interface that displays real-time information on bus routes, current
+          bus positions, and estimated time of arrival (ETA). The project also
+          encompasses an administrative portal tailored to the needs of bus
+          drivers.
+        </div>
+        <div class="fade-in q-mt-lg">
+          On the user side, the application provides a user-friendly display of
+          bus routes, showcasing live bus positions and accurate ETAs. This
+          real-time tracking functionality enhances user convenience and
+          facilitates efficient commute planning. Important announcements
+          related to bus schedules or campus events are seamlessly integrated,
+          ensuring users receive timely notifications.
+        </div>
+        <div class="fade-in q-mt-lg">
+          For administrators, bus drivers access a secure login to initiate and
+          update their routes, contributing to the overall efficiency of the
+          shuttle system. The ability for drivers to update their live locations
+          ensures users have access to the most current information.
+          Additionally, the announcement feature enables drivers to communicate
+          important information directly to users through the application.
+        </div>
+        <div class="fade-in q-mt-lg">
+          A significant feature of the system is the inclusion of a maintenance
+          request functionality. This empowers users to submit maintenance
+          requests directly through the application, streamlining the process
+          for addressing issues and ensuring the continual reliability of the
+          shuttle service. This user-driven approach enhances overall user
+          experience and contributes to the efficient management of the shuttle
+          system.
+        </div>
+        <div class="fade-in q-mt-lg">
+          The collaborative effort of the team, consisting of six members, is
+          evident in the seamless integration of user and administrative
+          functionalities. The Shuttlebus System not only simplifies
+          transportation logistics for the campus community but also offers a
+          user-centric approach with features designed to enhance communication,
+          efficiency, and maintenance processes. This project serves as a
+          testament to the team's ability to address real-world challenges with
+          innovative solutions, showcasing their skills in system design and
+          collaborative development.
+        </div>
       </div>
       <q-breadcrumbs
         separator="|"
