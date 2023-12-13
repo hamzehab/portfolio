@@ -14,8 +14,17 @@ function sourceCode(project_id) {
         "_blank"
       );
       break;
-    case 2:
-      window.open("https://github.com/hamzehab/CSIT337-Project", "_blank_");
+    case 2.1:
+      window.open(
+        "https://github.com/hamzehab/UnlimitedDrinks-Frontend",
+        "_blank_"
+      );
+      break;
+    case 2.2:
+      window.open(
+        "https://github.com/hamzehab/UnlimitedDrinks-Backend",
+        "_blank_"
+      );
       break;
     case 3:
       window.open("https://github.com/hamzehab/ShuttleBus", "_blank_");
@@ -440,9 +449,25 @@ onMounted(() => {
           <span
             :class="$q.dark.isActive ? 'live-demo' : 'demo-lm'"
             class="q-pr-sm"
-            @click="sourceCode(2)"
           >
             View Source Code
+            <q-menu
+              class="bg-dark text-white text-body1 text-center"
+              style="width: 175px"
+              transition-show="jump-down"
+              transition-hide="jump-up"
+              :offset="[0, 15]"
+            >
+              <q-list>
+                <q-item clickable v-close-popup @click="sourceCode(2.1)">
+                  <q-item-section>Frontend</q-item-section>
+                </q-item>
+                <q-separator />
+                <q-item clickable v-close-popup @click="sourceCode(2.2)">
+                  <q-item-section>Backend</q-item-section>
+                </q-item>
+              </q-list>
+            </q-menu>
           </span>
           <img
             width="25"
