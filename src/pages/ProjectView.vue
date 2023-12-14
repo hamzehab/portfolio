@@ -16,7 +16,7 @@ function sourceCode(project_id) {
       break;
     case 2.1:
       window.open(
-        "https://github.com/hamzehab/UnlimitedDrinks-Frontend",
+        "https://github.com/hamzehab/unlimiteddrinks-frontend",
         "_blank_"
       );
       break;
@@ -38,7 +38,10 @@ function liveDemo(project_id) {
       window.open("https://hamzehab.github.io/portfolio/", "_blank");
       break;
     case 2:
-      window.open("", "_blank_");
+      window.open(
+        "https://hamzehab.github.io/unlimiteddrinks-frontend/",
+        "_blank_"
+      );
       break;
   }
 }
