@@ -4,7 +4,7 @@ import { useQuasar } from "quasar";
 
 const $q = useQuasar();
 const hover = ref(null);
-const mainLogo = ref("static/images/bropic.jpg");
+const mainLogo = ref("static/logoDarkMode.png");
 
 const socials = ref([
   { src: "static/socials/instagram/ig.png", alt: "Instagram" },

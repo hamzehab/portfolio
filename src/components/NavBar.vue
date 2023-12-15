@@ -11,7 +11,7 @@ const toggleDarkMode = () => {
 
 const toggleMenu = ref(false);
 const navList = ["PROJECTS", "CONTACT"];
-const mainLogo = ref("/static/logoDarkMode.png");
+const mainLogo = ref("static/logoDarkMode.png");
 
 const openPDF = () => {
   window.open("static/Hamzeh Resume.pdf");
