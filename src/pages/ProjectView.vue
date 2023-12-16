@@ -108,17 +108,12 @@ onMounted(() => {
               width="25"
               height="25"
               src="static/logos/html.png"
-              alt="HTML Logo"
+              alt="HTML"
             />
             <span class="q-pl-sm">HTML</span>
           </q-breadcrumbs-el>
           <q-breadcrumbs-el>
-            <img
-              width="25"
-              height="25"
-              src="static/logos/css.png"
-              alt="CSS Logo"
-            />
+            <img width="25" height="25" src="static/logos/css.png" alt="CSS" />
             <span class="q-pl-sm">CSS</span>
           </q-breadcrumbs-el>
           <q-breadcrumbs-el>
@@ -126,12 +121,12 @@ onMounted(() => {
               width="25"
               height="25"
               src="static/logos/vue-js.png"
-              alt="Vue Logo"
+              alt="Vue.js"
             />
             <span class="q-pl-sm">Vue.js</span>
           </q-breadcrumbs-el>
           <q-breadcrumbs-el>
-            <img width="25" height="25" src="/favicon.ico" alt="Quasar Logo" />
+            <img width="25" height="25" src="/favicon.ico" alt="Quasar" />
             <span class="q-pl-sm">Quasar</span>
           </q-breadcrumbs-el>
         </q-breadcrumbs>
@@ -166,21 +161,11 @@ onMounted(() => {
         active-color=""
       >
         <q-breadcrumbs-el>
-          <img
-            width="25"
-            height="25"
-            src="static/logos/html.png"
-            alt="HTML Logo"
-          />
+          <img width="25" height="25" src="static/logos/html.png" alt="HTML" />
           <span class="q-pl-sm">HTML</span>
         </q-breadcrumbs-el>
         <q-breadcrumbs-el>
-          <img
-            width="25"
-            height="25"
-            src="static/logos/css.png"
-            alt="CSS Logo"
-          />
+          <img width="25" height="25" src="static/logos/css.png" alt="CSS" />
           <span class="q-pl-sm">CSS</span>
         </q-breadcrumbs-el>
         <q-breadcrumbs-el>
@@ -188,12 +173,12 @@ onMounted(() => {
             width="25"
             height="25"
             src="static/logos/vue-js.png"
-            alt="Vue Logo"
+            alt="Vue.js"
           />
           <span class="q-pl-sm">Vue.js</span>
         </q-breadcrumbs-el>
         <q-breadcrumbs-el>
-          <img width="25" height="25" src="/favicon.ico" alt="Quasar Logo" />
+          <img width="25" height="25" src="/favicon.ico" alt="Quasar" />
           <span class="q-pl-sm">Quasar</span>
         </q-breadcrumbs-el>
       </q-breadcrumbs>
@@ -298,30 +283,20 @@ onMounted(() => {
               width="25"
               height="25"
               src="static/logos/html.png"
-              alt="HTML Logo"
+              alt="HTML"
             />
             <span class="q-pl-sm">HTML</span>
           </q-breadcrumbs-el>
           <q-breadcrumbs-el>
-            <img
-              width="25"
-              height="25"
-              src="static/logos/css.png"
-              alt="HTML Logo"
-            />
+            <img width="25" height="25" src="static/logos/css.png" alt="CSS" />
             <span class="q-pl-sm">CSS</span>
           </q-breadcrumbs-el>
           <q-breadcrumbs-el>
-            <img
-              width="25"
-              height="25"
-              src="static/logos/vue-js.png"
-              alt="HTML Logo"
-            />
+            <img width="25" height="25" src="static/logos/php.png" alt="PHP" />
             <span class="q-pl-sm">PHP</span>
           </q-breadcrumbs-el>
           <q-breadcrumbs-el>
-            <img width="25" height="25" src="/favicon.ico" alt="Quasar Logo" />
+            <img width="25" height="25" src="static/logos/sql.png" alt="SQL" />
             <span class="q-pl-sm">MySQL</span>
           </q-breadcrumbs-el>
         </q-breadcrumbs>
@@ -357,21 +332,11 @@ onMounted(() => {
         active-color=""
       >
         <q-breadcrumbs-el>
-          <img
-            width="25"
-            height="25"
-            src="static/logos/html.png"
-            alt="HTML Logo"
-          />
+          <img width="25" height="25" src="static/logos/html.png" alt="HTML" />
           <span class="q-pl-sm">HTML</span>
         </q-breadcrumbs-el>
         <q-breadcrumbs-el>
-          <img
-            width="25"
-            height="25"
-            src="static/logos/css.png"
-            alt="HTML Logo"
-          />
+          <img width="25" height="25" src="static/logos/css.png" alt="CSS" />
           <span class="q-pl-sm">CSS</span>
         </q-breadcrumbs-el>
         <q-breadcrumbs-el>
@@ -379,12 +344,12 @@ onMounted(() => {
             width="25"
             height="25"
             src="static/logos/vue-js.png"
-            alt="HTML Logo"
+            alt="Vue.js"
           />
           <span class="q-pl-sm">Vue.js</span>
         </q-breadcrumbs-el>
         <q-breadcrumbs-el>
-          <img width="25" height="25" src="/favicon.ico" alt="Quasar Logo" />
+          <img width="25" height="25" src="/favicon.ico" alt="Quasar" />
           <span class="q-pl-sm">Quasar</span>
         </q-breadcrumbs-el>
       </q-breadcrumbs>
@@ -502,30 +467,20 @@ onMounted(() => {
               width="25"
               height="25"
               src="static/logos/html.png"
-              alt="HTML Logo"
+              alt="HTML"
             />
             <span class="q-pl-sm">HTML</span>
           </q-breadcrumbs-el>
           <q-breadcrumbs-el>
-            <img
-              width="25"
-              height="25"
-              src="static/logos/css.png"
-              alt="HTML Logo"
-            />
+            <img width="25" height="25" src="static/logos/css.png" alt="CSS" />
             <span class="q-pl-sm">CSS</span>
           </q-breadcrumbs-el>
           <q-breadcrumbs-el>
-            <img
-              width="25"
-              height="25"
-              src="static/logos/vue-js.png"
-              alt="HTML Logo"
-            />
+            <img width="25" height="25" src="static/logos/php.png" alt="PHP" />
             <span class="q-pl-sm">PHP</span>
           </q-breadcrumbs-el>
           <q-breadcrumbs-el>
-            <img width="25" height="25" src="/favicon.ico" alt="Quasar Logo" />
+            <img width="25" height="25" src="static/logos/sql.png" alt="SQL" />
             <span class="q-pl-sm">MySQL</span>
           </q-breadcrumbs-el>
         </q-breadcrumbs>
@@ -561,34 +516,19 @@ onMounted(() => {
         active-color=""
       >
         <q-breadcrumbs-el>
-          <img
-            width="25"
-            height="25"
-            src="static/logos/html.png"
-            alt="HTML Logo"
-          />
+          <img width="25" height="25" src="static/logos/html.png" alt="HTML" />
           <span class="q-pl-sm">HTML</span>
         </q-breadcrumbs-el>
         <q-breadcrumbs-el>
-          <img
-            width="25"
-            height="25"
-            src="static/logos/css.png"
-            alt="HTML Logo"
-          />
+          <img width="25" height="25" src="static/logos/css.png" alt="CSS" />
           <span class="q-pl-sm">CSS</span>
         </q-breadcrumbs-el>
         <q-breadcrumbs-el>
-          <img
-            width="25"
-            height="25"
-            src="static/logos/vue-js.png"
-            alt="HTML Logo"
-          />
+          <img width="25" height="25" src="static/logos/php.png" alt="PHP" />
           <span class="q-pl-sm">PHP</span>
         </q-breadcrumbs-el>
         <q-breadcrumbs-el>
-          <img width="25" height="25" src="/favicon.ico" alt="Quasar Logo" />
+          <img width="25" height="25" src="static/logos/sql.png" alt="SQL" />
           <span class="q-pl-sm">MySQL</span>
         </q-breadcrumbs-el>
       </q-breadcrumbs>
