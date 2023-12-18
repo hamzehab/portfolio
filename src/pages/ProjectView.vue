@@ -275,7 +275,7 @@ onMounted(() => {
         <div class="text-caption">E-commerce Website</div>
         <q-breadcrumbs
           separator="|"
-          class="fade-in flex-flex-center text-body2 text-bold q-my-md"
+          class="fade-in flex flex-center text-body2 text-bold q-my-md"
           active-color=""
         >
           <q-breadcrumbs-el>
@@ -292,12 +292,35 @@ onMounted(() => {
             <span class="q-pl-sm">CSS</span>
           </q-breadcrumbs-el>
           <q-breadcrumbs-el>
-            <img width="25" height="25" src="static/logos/php.png" alt="PHP" />
-            <span class="q-pl-sm">PHP</span>
+            <img
+              width="25"
+              height="25"
+              src="static/logos/vue-js.png"
+              alt="Vue.js"
+            />
+            <span class="q-pl-sm">Vue.js</span>
           </q-breadcrumbs-el>
           <q-breadcrumbs-el>
-            <img width="25" height="25" src="static/logos/sql.png" alt="SQL" />
-            <span class="q-pl-sm">MySQL</span>
+            <img width="25" height="25" src="/favicon.ico" alt="Quasar" />
+            <span class="q-pl-sm">Quasar</span>
+          </q-breadcrumbs-el>
+          <q-breadcrumbs-el>
+            <img
+              width="25"
+              height="25"
+              src="static/logos/python.png"
+              alt="Python"
+            />
+            <span class="q-pl-sm">Python</span>
+          </q-breadcrumbs-el>
+          <q-breadcrumbs-el>
+            <img
+              width="25"
+              height="25"
+              src="static/logos/postgresql.png"
+              alt="PostgreSQL"
+            />
+            <span class="q-pl-sm">PostgreSQL</span>
           </q-breadcrumbs-el>
         </q-breadcrumbs>
       </div>
@@ -351,6 +374,24 @@ onMounted(() => {
         <q-breadcrumbs-el>
           <img width="25" height="25" src="/favicon.ico" alt="Quasar" />
           <span class="q-pl-sm">Quasar</span>
+        </q-breadcrumbs-el>
+        <q-breadcrumbs-el>
+          <img
+            width="25"
+            height="25"
+            src="static/logos/python.png"
+            alt="Python"
+          />
+          <span class="q-pl-sm">Python</span>
+        </q-breadcrumbs-el>
+        <q-breadcrumbs-el>
+          <img
+            width="25"
+            height="25"
+            src="static/logos/postgresql.png"
+            alt="PostgreSQL"
+          />
+          <span class="q-pl-sm">PostgreSQL</span>
         </q-breadcrumbs-el>
       </q-breadcrumbs>
       <div class="text-body1 text-weight-medium">
