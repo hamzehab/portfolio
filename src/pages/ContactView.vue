@@ -135,7 +135,7 @@ onMounted(() => {
         <q-card-section class="q-pa-lg">
           <div class="text-bold text-body1">Hamzeh Abdallah</div>
           <div class="text-body2 q-py-sm">
-            Software Engineer, Full Stack Developer, and Video Gamer
+            Software Engineer and Full Stack Developer
           </div>
           <div class="row justify-end">
             <img
