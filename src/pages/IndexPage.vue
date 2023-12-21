@@ -190,9 +190,8 @@ onMounted(() => {
         </div>
       </div>
       <div class="animation q-my-lg">
-        I am 21 years old soon to be 22. I live at home with my mother and
-        father along with my brother and two sisters. A little more about
-        myself:
+        I am 22 years old. I live at home with my mother and father along with
+        my brother and two sisters. A little more about myself:
       </div>
       <q-list class="text-weight-regular">
         <q-item class="animation">
