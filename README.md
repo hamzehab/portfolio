@@ -1,26 +1,12 @@
-# Personal Portfolio and Blog
+# Personal Portfolio Website
 
-View the live demo [here.](https://hamzehab.github.io/portfolio/)
+This project is a comprehensive single-page application (SPA) that serves as a personal portfolio website, showcasing my professional experiences, personal achievements, and software development projects. Designed to highlight my proficiency in front-end development and design, the website is built using Vue.js and styled with HTML, CSS, and the Quasar Framework.
 
-> :warning: **Warning:** Blog posts are not available in the live demo due to GitHub pages support. If run locally, the blog posts should be functional.
+## Features:
+- **User-Friendly Interface:** The website features a streamlined, intuitive interface that allows visitors to easily navigate through different sections including achievements, hobbies, and projects.
+- **Responsive Design:** Employing responsive web design principles, the site is optimized for viewing across various devices and screen sizes.
+- **Project Showcase:** Each project and professional experience is detailed, demonstrating my skills in software engineering and programming.
+- **Contact Form Integration:** Includes a functional contact form powered by Email.js, enabling smooth and direct communication with site visitors.
+- **Deployment:** Deployed as a SPA on GitHub Pages for easy access and maintenance.
 
-This is a personal portfolio website explaining who I am as a person on a screen. Not only is it that but its a blog website, where anyone can leave a review or a comment on the website.
-
-## Build Setup
-
-```bash
-#install dependencies
-yarn intall
-# or
-npm install
-
-# Start the app in development mode with hot reload, error reporting, etc.
-# App will run at localhost:9000
-quasar dev
-```
-
-### If you want to build the frontend of the application for production
-
-```bash
-quasar build
-```
+This portfolio not only reflects my skills in using cutting-edge technologies but also serves as a platform to connect with peers and potential employers in the tech industry.
