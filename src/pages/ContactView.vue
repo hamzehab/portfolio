@@ -130,7 +130,7 @@ onMounted(() => {
         :class="$q.dark.isActive ? '' : ''"
         :bordered="!$q.dark.isActive"
       >
-        <img src="static/images/babypic.jpg" />
+        <img src="static/images/window.jpg" />
 
         <q-card-section class="q-pa-lg">
           <div class="text-bold text-body1">Hamzeh Abdallah</div>
