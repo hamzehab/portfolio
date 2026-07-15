@@ -1,9 +1,17 @@
 <script setup>
+import { ref } from "vue";
 import { useQuasar } from "quasar";
 import NavBar from "components/NavBar.vue";
 import FooterComponent from "src/components/FooterComponent.vue";
 
 const $q = useQuasar();
+
+// Preview media for these projects hasn't been added yet.
+// Falls back to a placeholder if the image 404s; swap to the real file
+// under the same static/ path and this switches over automatically.
+const tungeMediaMissing = ref(false);
+const couchPotatoMediaMissing = ref(false);
+const valorantMediaMissing = ref(false);
 
 function sourceCode(project_id) {
   switch (project_id) {
@@ -89,16 +97,36 @@ function liveDemo(project_id) {
         </q-breadcrumbs>
       </div>
       <div v-scroll-animate="{ enter: 'slideInLeft', speed: 'faster' }">
-        <img
-          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="gt-sm"
-          src="static/tunge.gif"
-          style="width: 900px"
-        />
-        <img
-          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="lt-md"
-          src="static/tunge.gif"
-          style="width: 100%"
-        />
+        <template v-if="!tungeMediaMissing">
+          <img
+            class="gt-sm"
+            src="static/tunge.gif"
+            style="width: 900px"
+            @error="tungeMediaMissing = true"
+          />
+          <img
+            class="lt-md"
+            src="static/tunge.gif"
+            style="width: 100%"
+            @error="tungeMediaMissing = true"
+          />
+        </template>
+        <div
+          v-else
+          class="flex flex-center text-center text-grey-6"
+          style="
+            width: 900px;
+            max-width: 100%;
+            height: 400px;
+            border: 2px dashed;
+            border-radius: 1rem;
+          "
+        >
+          <div>
+            <q-icon name="image" size="48px" />
+            <div class="text-body1 q-mt-sm">Preview coming soon</div>
+          </div>
+        </div>
         <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-center text-caption text-grey-8 q-my-md">
           Figure 1: Tunge Preview
         </div>
@@ -212,16 +240,36 @@ function liveDemo(project_id) {
         </q-breadcrumbs>
       </div>
       <div v-scroll-animate="{ enter: 'slideInRight', speed: 'faster' }">
-        <img
-          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="gt-sm"
-          src="static/couchpotatofarm.gif"
-          style="width: 900px"
-        />
-        <img
-          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="lt-md"
-          src="static/couchpotatofarm.gif"
-          style="width: 100%"
-        />
+        <template v-if="!couchPotatoMediaMissing">
+          <img
+            class="gt-sm"
+            src="static/couchpotatofarm.gif"
+            style="width: 900px"
+            @error="couchPotatoMediaMissing = true"
+          />
+          <img
+            class="lt-md"
+            src="static/couchpotatofarm.gif"
+            style="width: 100%"
+            @error="couchPotatoMediaMissing = true"
+          />
+        </template>
+        <div
+          v-else
+          class="flex flex-center text-center text-grey-6"
+          style="
+            width: 900px;
+            max-width: 100%;
+            height: 400px;
+            border: 2px dashed;
+            border-radius: 1rem;
+          "
+        >
+          <div>
+            <q-icon name="image" size="48px" />
+            <div class="text-body1 q-mt-sm">Preview coming soon</div>
+          </div>
+        </div>
         <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-center text-caption text-grey-8 q-my-md">
           Figure 2: Couch Potato Farm Preview
         </div>
@@ -322,16 +370,36 @@ function liveDemo(project_id) {
         </q-breadcrumbs>
       </div>
       <div v-scroll-animate="{ enter: 'slideInLeft', speed: 'faster' }">
-        <img
-          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="gt-sm"
-          src="static/valorant.gif"
-          style="width: 900px"
-        />
-        <img
-          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="lt-md"
-          src="static/valorant.gif"
-          style="width: 100%"
-        />
+        <template v-if="!valorantMediaMissing">
+          <img
+            class="gt-sm"
+            src="static/valorant.gif"
+            style="width: 900px"
+            @error="valorantMediaMissing = true"
+          />
+          <img
+            class="lt-md"
+            src="static/valorant.gif"
+            style="width: 100%"
+            @error="valorantMediaMissing = true"
+          />
+        </template>
+        <div
+          v-else
+          class="flex flex-center text-center text-grey-6"
+          style="
+            width: 900px;
+            max-width: 100%;
+            height: 400px;
+            border: 2px dashed;
+            border-radius: 1rem;
+          "
+        >
+          <div>
+            <q-icon name="image" size="48px" />
+            <div class="text-body1 q-mt-sm">Preview coming soon</div>
+          </div>
+        </div>
         <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-center text-caption text-grey-8 q-my-md">
           Figure 3: Valorant True Stretch Launch Preview
         </div>
