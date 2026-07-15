@@ -10,7 +10,7 @@ const toggleDarkMode = () => {
 };
 
 const toggleMenu = ref(false);
-const navList = ["PROJECTS", "CONTACT"];
+const navList = ["EXPERIENCE", "PROJECTS", "CONTACT"];
 const mainLogo = ref("static/logoDarkMode.png");
 
 const openPDF = () => {
@@ -42,6 +42,8 @@ watchEffect(() => {
               height="30"
               :src="mainLogo"
               @click="$router.push('/')"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div
@@ -89,6 +91,8 @@ watchEffect(() => {
               height="30"
               :src="mainLogo"
               @click="$router.push('/')"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <q-icon

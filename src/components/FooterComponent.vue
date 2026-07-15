@@ -102,7 +102,7 @@ watchEffect(() => {
           @mouseover="colorIcons(social.alt, true)"
           @mouseleave="colorIcons(social.alt, false)"
         >
-          <img class="q-mb-lg" :src="social.src" :alt="social.alt" />
+          <img class="q-mb-lg" :src="social.src" :alt="social.alt" loading="lazy" decoding="async"/>
         </div>
         <div
           v-if="hover === social.alt"
@@ -120,6 +120,8 @@ watchEffect(() => {
         height="60"
         :src="mainLogo"
         @click="$router.push('/')"
+        loading="lazy"
+        decoding="async"
       />
     </div>
     <div class="row justify-between text-weight-medium text-body1">
@@ -130,6 +132,13 @@ watchEffect(() => {
           @click="openPDF"
         >
           RESUME
+        </span>
+        <span
+          class="q-mx-xl"
+          :class="$q.dark.isActive ? 'footer-links-dm' : 'footer-links-lm'"
+          @click="$router.push('/experience')"
+        >
+          EXPERIENCE
         </span>
         <span
           :class="$q.dark.isActive ? 'footer-links-dm' : 'footer-links-lm'"
@@ -162,11 +171,20 @@ watchEffect(() => {
           class="cursor-pointer"
           :src="social.src"
           :alt="social.alt"
+          loading="lazy"
+          decoding="async"
         />
       </div>
     </div>
     <div class="text-weight-medium text-body1 q-py-lg">
       <div class="text-center">
+        <div
+          class="q-my-md"
+          :class="$q.dark.isActive ? 'text-amber' : 'text-indigo'"
+          @click="$router.push('/experience')"
+        >
+          EXPERIENCE
+        </div>
         <div
           class="q-my-md"
           :class="$q.dark.isActive ? 'text-amber' : 'text-indigo'"
@@ -197,6 +215,8 @@ watchEffect(() => {
         height="60"
         :src="mainLogo"
         @click="$router.push('/')"
+        loading="lazy"
+        decoding="async"
       />
     </div>
   </div>

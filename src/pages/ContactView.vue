@@ -133,6 +133,8 @@ onMounted(() => {
         <img
           src="static/images/window.jpg"
           style="height: 300px; object-fit: cover"
+          loading="lazy"
+          decoding="async"
         />
 
         <q-card-section class="q-pa-lg">
@@ -150,6 +152,8 @@ onMounted(() => {
               "
               width="150"
               alt="my_signature"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </q-card-section>
@@ -162,6 +166,8 @@ onMounted(() => {
             height="60"
             alt="Instagram"
             @click="redirect('https://www.instagram.com/hazmeh_/')"
+            loading="lazy"
+            decoding="async"
           />
           <img
             class="cursor-pointer"
@@ -174,6 +180,8 @@ onMounted(() => {
             height="60"
             alt="GitHub"
             @click="redirect('https://github.com/hamzehab')"
+            loading="lazy"
+            decoding="async"
           />
           <img
             class="cursor-pointer"
@@ -182,6 +190,8 @@ onMounted(() => {
             height="60"
             alt="LinkedIn"
             @click="redirect('https://www.linkedin.com/in/hamzeh-abdallah/')"
+            loading="lazy"
+            decoding="async"
           />
         </q-card-section>
         <q-separator />

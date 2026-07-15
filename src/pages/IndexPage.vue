@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref, watch } from "vue";
+import { computed, ref, watch } from "vue";
 import { useQuasar } from "quasar";
 
 import NavBar from "components/NavBar.vue";
@@ -11,6 +11,18 @@ import "animate.css";
 
 const $q = useQuasar();
 const viewMore = ref(false);
+
+const birthDate = new Date(2001, 9, 13);
+const age = computed(() => {
+  const today = new Date();
+  let years = today.getFullYear() - birthDate.getFullYear();
+  const hasHadBirthdayThisYear =
+    today.getMonth() > birthDate.getMonth() ||
+    (today.getMonth() === birthDate.getMonth() &&
+      today.getDate() >= birthDate.getDate());
+  if (!hasHadBirthdayThisYear) years--;
+  return years;
+});
 
 const autoplay = ref(true);
 const slide = ref(1);
@@ -29,23 +41,6 @@ watch(slide, () => {
       autoplay.value = true;
     }, 2750);
   }
-});
-
-onMounted(() => {
-  const animations = document.querySelectorAll(".animation");
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      entry.target.classList.toggle("animated", entry.isIntersecting);
-      entry.target.classList.toggle("fadeIn", entry.isIntersecting);
-      entry.target.classList.toggle("slow", entry.isIntersecting);
-      if (entry.isIntersecting) observer.unobserve(entry.target);
-    });
-  });
-
-  animations.forEach((animation) => {
-    observer.observe(animation);
-  });
 });
 </script>
 
@@ -172,13 +167,15 @@ onMounted(() => {
 
   <div class="q-pa-md row justify-center q-gutter-x-xl text-h5 items-center">
     <q-img
-      class="animation"
+      v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }"
       src="static/images/portrait.jpg"
       style="width: 500px; height: 45vh; border-radius: 1rem"
+      loading="lazy"
+      decoding="async"
     />
     <div style="max-width: 1000px">
       <div
-        class="animation text-h5 text-center text-weight-bold text-grey-5 q-my-lg"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="text-h5 text-center text-weight-bold text-grey-5 q-my-lg"
       >
         <div>
           &#x1F44B; Hi everyone!! Firstly, I want to thank you for taking the
@@ -189,27 +186,29 @@ onMounted(() => {
           Abdallah.
         </div>
       </div>
-      <div class="animation q-my-lg">
-        I am 22 years old. I live at home with my mother and father along with
-        my brother and two sisters. A little more about myself:
+      <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="q-my-lg">
+        I am {{ age }} years old. I live at home with my mother and father
+        along with my brother and two sisters. A little more about myself:
       </div>
       <q-list class="text-weight-regular">
-        <q-item class="animation">
+        <q-item v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }">
           <img
             class="q-mr-md"
             width="25"
             height="25"
             src="https://img.icons8.com/color/48/palestine.png"
             alt="palestine_flag"
+            loading="lazy"
+            decoding="async"
           />
           I am a Palestinian American but was born and raised in NJ
         </q-item>
-        <q-item class="animation">
+        <q-item v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }">
           <div class="q-mr-sm">&#127891;</div>
           I received my Bachelors Degree from Montclair State University and
           graduated with a 3.919 GPA awarded with the title Summa Cum Laude
         </q-item>
-        <q-item class="animation">
+        <q-item v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }">
           <div class="q-mr-sm">&#128187;</div>
           I currently work as a software engineer at AYA Holdings Group, where I
           collaborate with my team to develop and deploy a full stack
@@ -229,13 +228,13 @@ onMounted(() => {
 
   <div class="q-px-xl q-pt-xl">
     <div
-      class="animation gt-xs text-weight-bolder text-h4 q-ml-xl q-pb-md"
+      v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="gt-xs text-weight-bolder text-h4 q-ml-xl q-pb-md"
       :class="$q.dark.isActive ? 'text-grey-8' : 'text-grey-6'"
     >
       Hobbies
     </div>
     <div
-      class="animation lt-sm text-center text-weight-bolder text-h4 q-pb-md"
+      v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="lt-sm text-center text-weight-bolder text-h4 q-pb-md"
       :class="$q.dark.isActive ? 'text-grey-8' : 'text-grey-6'"
     >
       Hobbies
@@ -246,9 +245,9 @@ onMounted(() => {
       :class="$q.dark.isActive ? 'text-white' : ''"
     >
       <div class="q-py-lg q-mx-xl" style="width: 400px">
-        <div class="animation">
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }">
           <img
-            class="animation"
+            v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }"
             :src="
               $q.dark.isActive
                 ? 'static/hobbies/gamesDM.png'
@@ -261,15 +260,17 @@ onMounted(() => {
                 ? 'border-color: #673ab7;'
                 : ' border-color: #3F51B5;'
             "
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div
-          class="animation text-h6 q-mx-md"
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="text-h6 q-mx-md"
           :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
         >
           Video Games
         </div>
-        <div class="animation text-caption">
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="text-caption">
           I've been a gamer since I was three, starting with Nintendo's Mario
           games, and I've now transitioned into a dedicated PC gamer. Whether it
           be with family and friends or solo sessions I always seem to enjoy my
@@ -279,7 +280,7 @@ onMounted(() => {
         </div>
       </div>
       <div class="q-py-lg q-mx-xl" style="width: 350px">
-        <div class="animation">
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }">
           <img
             :src="
               $q.dark.isActive
@@ -293,15 +294,17 @@ onMounted(() => {
                 ? 'border-color: #673ab7;'
                 : ' border-color: #3F51B5;'
             "
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div
-          class="animation text-h6 q-mx-md"
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="text-h6 q-mx-md"
           :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
         >
           Basketball
         </div>
-        <div class="animation text-caption">
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="text-caption">
           Out of all the sports out there, I believe basketball to be the one I
           enjoy the most. Most if not all my PE classes throughout elementary,
           middle, and high school my classmates and I would play basketball.
@@ -311,7 +314,7 @@ onMounted(() => {
       </div>
 
       <div class="q-py-lg q-mx-xl" style="width: 400px">
-        <div class="animation">
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }">
           <img
             :src="
               $q.dark.isActive
@@ -325,21 +328,23 @@ onMounted(() => {
                 ? 'border-color: #673ab7;'
                 : ' border-color: #3F51B5;'
             "
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div
-          class="animation text-h6 q-mx-md"
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="text-h6 q-mx-md"
           :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
         >
           Family and Friends
         </div>
         <span
-          class="animation text-caption text-weight-bolder"
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="text-caption text-weight-bolder"
           :class="$q.dark.isActive ? 'text-amber' : 'text-grey'"
         >
           I prefer real talk over small talk
         </span>
-        <div class="animation text-caption">
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="text-caption">
           My family and friends are everything to me in my life. Without them I
           would not be where I am today. Whenever I have free time I enjoy
           spending that time with those closest to me and engage in meaningful
@@ -347,7 +352,7 @@ onMounted(() => {
         </div>
       </div>
       <div class="q-py-lg q-mx-xl" style="width: 400px">
-        <div class="animation">
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }">
           <img
             class="q-mr-md"
             :src="
@@ -362,6 +367,8 @@ onMounted(() => {
                 ? 'border-color: #673ab7;'
                 : ' border-color: #3F51B5;'
             "
+            loading="lazy"
+            decoding="async"
           />
           <img
             :src="
@@ -376,15 +383,17 @@ onMounted(() => {
                 ? 'border-color: #673ab7;'
                 : ' border-color: #3F51B5;'
             "
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div
-          class="animation text-h6 q-mx-md"
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="text-h6 q-mx-md"
           :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
         >
           Outdoors or Indoors
         </div>
-        <div class="animation text-caption">
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="text-caption">
           As a person, I don't have much of a preference for having a good time.
           I am always down for anything as long as we're enjoying each other's
           company. Anything outdoors such as bowling, hiking, a walk on the
@@ -392,7 +401,7 @@ onMounted(() => {
         </div>
       </div>
       <div class="q-py-xl q-mx-xl" style="width: 400px">
-        <div class="animation">
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }">
           <img
             :src="
               $q.dark.isActive
@@ -406,15 +415,17 @@ onMounted(() => {
                 ? 'border-color: #673ab7;'
                 : ' border-color: #3F51B5;'
             "
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div
-          class="animation text-h6 q-mx-md"
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="text-h6 q-mx-md"
           :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
         >
           Music
         </div>
-        <div class="animation text-caption">
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="text-caption">
           In my free time or even when I am busy with tasks, music is something
           I look forward to and never fails to lift me up or make things
           slightly better. It sets a mood which allows me to unwind after a

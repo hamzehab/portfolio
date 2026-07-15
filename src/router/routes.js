@@ -14,6 +14,13 @@ const routes = [
     },
   },
   {
+    path: "/experience",
+    component: () => import("pages/ExperienceView.vue"),
+    meta: {
+      title: "Experience",
+    },
+  },
+  {
     path: "/projects",
     children: [
       {

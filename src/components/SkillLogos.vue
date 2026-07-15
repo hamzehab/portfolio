@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref, watchEffect, onBeforeUnmount } from "vue";
+import { ref, watchEffect, onBeforeUnmount } from "vue";
 import { useQuasar } from "quasar";
 const $q = useQuasar();
 
@@ -12,10 +12,13 @@ const switchTab = () => {
   tab.value = tabs[nextIndex];
 };
 
-const intervalID = setInterval(switchTab, 10000);
-onBeforeUnmount(() => {
-  clearInterval(intervalID);
-});
+let intervalID = setInterval(switchTab, 10000);
+const pauseAutoplay = () => clearInterval(intervalID);
+const resumeAutoplay = () => {
+  intervalID = setInterval(switchTab, 10000);
+};
+
+onBeforeUnmount(pauseAutoplay);
 
 const logos = {
   Languages: [
@@ -55,6 +58,10 @@ const logos = {
       src: "static/logos/c.png",
       alt: "C",
     },
+    {
+      src: "static/logos/typescript.png",
+      alt: "TypeScript",
+    },
   ],
   "Frameworks & Libraries": [
     {
@@ -69,6 +76,26 @@ const logos = {
     {
       src: "static/logos/FastAPI.png",
       alt: "FastAPI",
+    },
+    {
+      src: "static/logos/react.png",
+      alt: "React",
+    },
+    {
+      src: "static/logos/nextjs.png",
+      alt: "Next.js",
+    },
+    {
+      src: "static/logos/tailwindcss.png",
+      alt: "Tailwind CSS",
+    },
+    {
+      src: "static/logos/partykit.png",
+      alt: "PartyKit",
+    },
+    {
+      src: "static/logos/websockets.png",
+      alt: "WebSockets",
     },
   ],
   "Developer Tools": [
@@ -92,6 +119,10 @@ const logos = {
       src: "static/logos/vsCode.png",
       alt: "VS Code",
     },
+    {
+      src: "static/logos/vitest.svg",
+      alt: "Vitest",
+    },
   ],
 };
 
@@ -106,30 +137,13 @@ watchEffect(() => {
     logos["Developer Tools"][1].src = "static/socials/github/github.png";
   }
 });
-
-onMounted(() => {
-  const skills = document.querySelectorAll(".skill");
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        entry.target.classList.toggle("animated", entry.isIntersecting);
-        entry.target.classList.toggle("slideInLeft", entry.isIntersecting);
-        entry.target.classList.toggle("fast", entry.isIntersecting);
-        if (entry.isIntersecting) observer.unobserve(entry.target);
-      });
-    },
-    { rootMargin: "-50px" }
-  );
-
-  skills.forEach((skill) => {
-    observer.observe(skill);
-  });
-});
 </script>
 
 <template>
-  <div class="skill">
+  <div
+    class="skill"
+    v-scroll-animate="{ enter: 'slideInLeft', speed: 'fast', rootMargin: '-50px' }"
+  >
     <div
       class="text-weight-bolder text-center text-h5 q-pt-xl"
       :class="$q.dark.isActive ? 'text-grey-8' : 'text-grey-6'"
@@ -137,7 +151,11 @@ onMounted(() => {
       <q-icon name="construction" />Technologies I have experience with ...
     </div>
 
-    <div class="q-mx-xl q-my-md">
+    <div
+      class="q-mx-xl q-my-md"
+      @mouseenter="pauseAutoplay"
+      @mouseleave="resumeAutoplay"
+    >
       <q-tabs
         v-model="tab"
         dense
@@ -169,6 +187,8 @@ onMounted(() => {
               style="width: 96px; height: 96px"
               :src="logo.src"
               :alt="logo.alt"
+              loading="lazy"
+              decoding="async"
             />
             <div class="q-mt-md text-center">
               <q-badge
@@ -192,6 +212,8 @@ onMounted(() => {
               style="width: 96px; height: 96px"
               :src="logo.src"
               :alt="logo.alt"
+              loading="lazy"
+              decoding="async"
             />
             <div class="q-mt-md text-center">
               <q-badge
@@ -212,6 +234,8 @@ onMounted(() => {
               style="width: 96px; height: 96px"
               :src="logo.src"
               :alt="logo.alt"
+              loading="lazy"
+              decoding="async"
             />
             <div class="q-mt-md text-center">
               <q-badge
