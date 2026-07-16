@@ -1,439 +1,1175 @@
 <script setup>
-import { computed, ref, watch } from "vue";
+import { ref } from "vue";
 import { useQuasar } from "quasar";
-
 import NavBar from "components/NavBar.vue";
-import FooterComponent from "components/FooterComponent.vue";
+import FooterComponent from "src/components/FooterComponent.vue";
 import SkillLogos from "components/SkillLogos.vue";
 import TypeAnimation from "components/TypeAnimation.vue";
 
 import "animate.css";
 
 const $q = useQuasar();
-const viewMore = ref(false);
 
-const birthDate = new Date(2001, 9, 13);
-const age = computed(() => {
-  const today = new Date();
-  let years = today.getFullYear() - birthDate.getFullYear();
-  const hasHadBirthdayThisYear =
-    today.getMonth() > birthDate.getMonth() ||
-    (today.getMonth() === birthDate.getMonth() &&
-      today.getDate() >= birthDate.getDate());
-  if (!hasHadBirthdayThisYear) years--;
-  return years;
-});
+// Preview media for these projects hasn't been added yet.
+// Falls back to a placeholder if the image 404s; swap to the real file
+// under the same static/ path and this switches over automatically.
+const tungeMediaMissing = ref(false);
+const couchPotatoMediaMissing = ref(false);
+const valorantMediaMissing = ref(false);
 
-const autoplay = ref(true);
-const slide = ref(1);
-const captions = ref([
-  "Baby picture of myself",
-  "Making Pizza at Home",
-  "Elementary School",
-  "High School Graduation",
-  "College Graduation",
-]);
-
-watch(slide, () => {
-  if (slide.value == 5) {
-    autoplay.value = false;
-    setTimeout(() => {
-      autoplay.value = true;
-    }, 2750);
+function sourceCode(project_id) {
+  switch (project_id) {
+    case 1:
+      window.open(
+        "https://github.com/hamzehab/portfolio/tree/source",
+        "_blank"
+      );
+      break;
+    case 2.1:
+      window.open(
+        "https://github.com/hamzehab/unlimiteddrinks-frontend",
+        "_blank_"
+      );
+      break;
+    case 2.2:
+      window.open(
+        "https://github.com/hamzehab/UnlimitedDrinks-Backend",
+        "_blank_"
+      );
+      break;
+    case 3:
+      window.open("https://github.com/hamzehab/ShuttleBus", "_blank_");
+      break;
+    case 4:
+      window.open("https://github.com/hamzehab/tunge", "_blank_");
+      break;
+    case 5:
+      window.open("https://github.com/hamzehab/idle_spiral", "_blank_");
+      break;
+    case 6:
+      window.open(
+        "https://github.com/hamzehab/valorant_true_stretch",
+        "_blank_"
+      );
+      break;
   }
-});
+}
+
+function liveDemo(project_id) {
+  switch (project_id) {
+    case 1:
+      window.open("https://hamzehab.github.io/portfolio/", "_blank");
+      break;
+    case 2:
+      window.open("https://hamzehab.github.io/unlimiteddrinks/#/", "_blank_");
+      break;
+  }
+}
 </script>
 
 <template>
-  <!-- Import Navbar component to display menu options -->
   <NavBar />
 
   <TypeAnimation />
-  <div class="q-pa-md">
-    <q-dialog v-model="viewMore" :full-width="$q.platform.is.mobile">
-      <q-card flat bordered style="border-radius: 1rem">
-        <q-card-section>
-          <div class="text-h6">More About Me</div>
-          <div class="text-caption">Background &amp; History</div>
-        </q-card-section>
-
-        <q-separator />
-
-        <q-card-section
-          style="max-height: 70vh"
-          class="text-body1 scroll q-my-sm"
-        >
-          <div :class="$q.platform.is.mobile ? '' : 'q-mx-xl'">
-            <div class="q-mb-lg" id="born">
-              Let's start from the day I was born which would be October 13,
-              2001 at St. Joseph's Hospital in Paterson, New Jersey. From this
-              day onward I was blessed with two amazing parents along with a
-              supportive family, including the extended family. At the time my
-              mother was caring for two children, myself and my older sister,
-              only a year between us. We were living in Woodridge, NJ, where my
-              father was running an Italian restaurant, named Emilia Romagna,
-              with his brother. My father would work hard to support the two
-              children and wife he had back home by working long shifts. What
-              made my father an even harder worker is that ever since he moved
-              from Jordan to the United States, he would try to make a life not
-              only for himself but for his mother and his siblings plus his
-              children and his wife. A year later, my parents brought a younger
-              sister into this world and after a few quiet years, three to be
-              exact, I was given a baby brother that can be spotted in the
-              picture in the background.
-            </div>
-            <div id="education">
-              <div class="q-mb-lg">
-                When I was three years old, I moved to a new house located in
-                Ridgewood, NJ. Today the year is 2023 and I am almost 22 years
-                old, making it close to 19 years since I have been living here,
-                not just a house but a place I call home. Shortly after when I
-                turned four years old, my parents placed me in a private Islamic
-                school, name Al-Hikmah Elementary School that tought children
-                from ages 3-12 (PreK - 6th Grade). Here is when and where my
-                journey began, where the pieces of my life were being put
-                together, where I would make friends that would become brothers
-                today, where the foundation of everyting all began. With a blink
-                of an eye, sixth grade ended quickly, and it was time to move
-                the a different school, named Al-Ghazaly High School. I also
-                spent the remainder of middle school and high school here from
-                7th grade all the way until senior year. If it weren't for my
-                family, friends, and teachers I would not be here today.
-              </div>
-              <div>
-                Long story short, during senior year I decided to enroll at New
-                Jersey Institute of Technology or NJIT for short for undergrad
-                where I would be majoring in Computer Science. I spent 1.5
-                semesters in person and on campus before COVID-19 hit the US.
-                Everything here shifted, from studies to personal life, it was
-                so different. When my third semester came in, I was stressing
-                24/7 and believed it to be the degree I was pursuing. With the
-                third semester coming to an end, it was at this point I decided
-                to change career paths and transfer to a different school. The
-                new career I chose was to become a Lawyer and transferred to
-                Montclair State University. After only one semester of studying
-                Law, I immediately switched back to Computer Science as I knew
-                that I was not cut out for it and that I was better suited for
-                my previous studies as the concepts made more sense to me and
-                came easier than anything else. I can still remember the first
-                day of university as if it were yesterday.
-              </div>
-            </div>
-            <div class="q-mt-lg">
-              <div class="q-mb-md text-center text-h5">
-                Grow Up With Me Through Pictures
-              </div>
-              <q-carousel
-                style="border-radius: 1rem; height: 30vh"
-                infinite
-                arrows
-                :autoplay="autoplay"
-                animated
-                v-model="slide"
-                transition-prev="slide-right"
-                transition-next="slide-left"
-              >
-                <q-carousel-slide
-                  :name="1"
-                  img-src="static/images/babypic.jpg"
-                />
-                <q-carousel-slide
-                  :name="2"
-                  img-src="static/images/makingPizza.jpeg"
-                />
-                <q-carousel-slide
-                  :name="3"
-                  img-src="static/images/elementary.jpeg"
-                />
-                <q-carousel-slide
-                  :name="4"
-                  img-src="static/images/hsgrad.jpg"
-                />
-                <q-carousel-slide :name="5">
-                  <video style="width: 100%; height: inherit" controls autoplay>
-                    <source src="static/cgrad.MP4" type="video/mp4" />
-                  </video>
-                </q-carousel-slide>
-              </q-carousel>
-              <div class="q-mt-lg text-body2 text-center text-grey">
-                Figure {{ slide }}: &nbsp;{{ captions[slide - 1] }}
-              </div>
-            </div>
-          </div>
-        </q-card-section>
-      </q-card>
-    </q-dialog>
-  </div>
-
-  <div class="q-pa-md row justify-center q-gutter-x-xl text-h5 items-center">
-    <q-img
-      v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }"
-      src="static/images/portrait.jpg"
-      style="width: 500px; height: 45vh; border-radius: 1rem"
-      loading="lazy"
-      decoding="async"
-    />
-    <div style="max-width: 1000px">
-      <div
-        v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="text-h5 text-center text-weight-bold text-grey-5 q-my-lg"
-      >
-        <div>
-          &#x1F44B; Hi everyone!! Firstly, I want to thank you for taking the
-          time to view my portfolio.
-        </div>
-        <div>
-          If you couldn't tell from the animation above, my name is Hamzeh
-          Abdallah.
-        </div>
-      </div>
-      <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="q-my-lg">
-        I am {{ age }} years old. I live at home with my mother and father
-        along with my brother and two sisters. A little more about myself:
-      </div>
-      <q-list class="text-weight-regular">
-        <q-item v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }">
-          <img
-            class="q-mr-md"
-            width="25"
-            height="25"
-            src="https://img.icons8.com/color/48/palestine.png"
-            alt="palestine_flag"
-            loading="lazy"
-            decoding="async"
-          />
-          I am a Palestinian American but was born and raised in NJ
-        </q-item>
-        <q-item v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }">
-          <div class="q-mr-sm">&#127891;</div>
-          I received my Bachelors Degree from Montclair State University and
-          graduated with a 3.919 GPA awarded with the title Summa Cum Laude
-        </q-item>
-        <q-item v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }">
-          <div class="q-mr-sm">&#128187;</div>
-          I currently work as a software engineer at AYA Holdings Group, where I
-          collaborate with my team to develop and deploy a full stack
-          application.
-        </q-item>
-      </q-list>
-      <div
-        class="text-body2 q-mt-lg cursor-pointer text-grey text-right"
-        @click="viewMore = true"
-      >
-        View More...
-      </div>
-    </div>
-  </div>
 
   <SkillLogos />
 
-  <div class="q-px-xl q-pt-xl">
+  <div class="q-mx-md q-pt-xl">
     <div
-      v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="gt-xs text-weight-bolder text-h4 q-ml-xl q-pb-md"
+      v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="gt-xs text-weight-bolder text-h4 q-pb-md"
       :class="$q.dark.isActive ? 'text-grey-8' : 'text-grey-6'"
     >
-      Hobbies
+      My Projects
     </div>
     <div
       v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="lt-sm text-center text-weight-bolder text-h4 q-pb-md"
       :class="$q.dark.isActive ? 'text-grey-8' : 'text-grey-6'"
     >
-      Hobbies
+      My Projects
     </div>
     <q-separator />
-    <div
-      class="row justify-center text-center q-py-xl"
-      :class="$q.dark.isActive ? 'text-white' : ''"
-    >
-      <div class="q-py-lg q-mx-xl" style="width: 400px">
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }">
+  </div>
+
+  <div style="padding-bottom: 5rem" />
+
+  <!-- Tunge -->
+  <div class="row justify-evenly items-center q-mx-md">
+    <div>
+      <div v-if="$q.platform.is.mobile" v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mb-sm text-center">
+        <div class="text-h5 text-bold">Tunge</div>
+        <div class="text-caption">Real-Time Online Card Game</div>
+        <q-breadcrumbs
+          separator="|"
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="flex flex-center text-body2 text-bold q-my-md"
+          active-color=""
+        >
+          <q-breadcrumbs-el>
+            <img width="25" height="25" src="static/logos/typescript.png" alt="TypeScript" />
+            <span class="q-pl-sm">TypeScript</span>
+          </q-breadcrumbs-el>
+          <q-breadcrumbs-el>
+            <img width="25" height="25" src="static/logos/nextjs.png" alt="Next.js" />
+            <span class="q-pl-sm">Next.js</span>
+          </q-breadcrumbs-el>
+          <q-breadcrumbs-el>
+            <img width="25" height="25" src="static/logos/react.png" alt="React Native" />
+            <span class="q-pl-sm">React Native</span>
+          </q-breadcrumbs-el>
+          <q-breadcrumbs-el>
+            <img width="25" height="25" src="static/logos/partykit.png" alt="PartyKit" />
+            <span class="q-pl-sm">PartyKit</span>
+          </q-breadcrumbs-el>
+        </q-breadcrumbs>
+      </div>
+      <div v-scroll-animate="{ enter: 'slideInLeft', speed: 'faster' }">
+        <template v-if="!tungeMediaMissing">
           <img
-            v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }"
-            :src="
-              $q.dark.isActive
-                ? 'static/hobbies/gamesDM.png'
-                : 'static/hobbies/games.png'
-            "
-            alt="controller"
-            style="border: 2px solid; border-radius: 3rem; padding: 15px"
+            class="gt-sm shadow-3"
+            src="static/tunge.gif"
+            style="width: 900px; border-radius: 0.5rem; border: 1px solid"
             :style="
               $q.dark.isActive
-                ? 'border-color: #673ab7;'
-                : ' border-color: #3F51B5;'
+                ? 'border-color: rgba(255, 255, 255, 0.12)'
+                : 'border-color: rgba(0, 0, 0, 0.08)'
             "
-            loading="lazy"
-            decoding="async"
+            @error="tungeMediaMissing = true"
           />
-        </div>
-        <div
-          v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="text-h6 q-mx-md"
-          :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
-        >
-          Video Games
-        </div>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="text-caption">
-          I've been a gamer since I was three, starting with Nintendo's Mario
-          games, and I've now transitioned into a dedicated PC gamer. Whether it
-          be with family and friends or solo sessions I always seem to enjoy my
-          time and the moments. Gaming titles such as League of Legends, Rocket
-          League, Teamfight Tactics, Valorant, etc. are the games I have been
-          playing recently.
+          <img
+            class="lt-md shadow-3"
+            src="static/tunge.gif"
+            style="width: 100%; border-radius: 0.5rem; border: 1px solid"
+            :style="
+              $q.dark.isActive
+                ? 'border-color: rgba(255, 255, 255, 0.12)'
+                : 'border-color: rgba(0, 0, 0, 0.08)'
+            "
+            @error="tungeMediaMissing = true"
+          />
+        </template>
+        <template v-else>
+          <div
+            class="gt-sm flex flex-center text-center text-grey-6"
+            style="
+              width: 900px;
+              aspect-ratio: 900 / 400;
+              border: 2px dashed;
+              border-radius: 1rem;
+            "
+          >
+            <div>
+              <q-icon name="image" size="48px" />
+              <div class="text-body1 q-mt-sm">Preview coming soon</div>
+            </div>
+          </div>
+          <div
+            class="lt-md flex flex-center text-center text-grey-6"
+            style="
+              width: 100%;
+              aspect-ratio: 900 / 400;
+              border: 2px dashed;
+              border-radius: 1rem;
+            "
+          >
+            <div>
+              <q-icon name="image" size="48px" />
+              <div class="text-body1 q-mt-sm">Preview coming soon</div>
+            </div>
+          </div>
+        </template>
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-center text-caption text-grey-8 q-my-md">
+          Figure 1: Tunge Preview
         </div>
       </div>
-      <div class="q-py-lg q-mx-xl" style="width: 350px">
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }">
-          <img
-            :src="
-              $q.dark.isActive
-                ? 'static/hobbies/basketballDM.png'
-                : 'static/hobbies/basketball.png'
-            "
-            alt="basketball"
-            style="border: 2px solid; border-radius: 3rem; padding: 15px"
-            :style="
-              $q.dark.isActive
-                ? 'border-color: #673ab7;'
-                : ' border-color: #3F51B5;'
-            "
-            loading="lazy"
-            decoding="async"
-          />
+    </div>
+    <div
+      :class="$q.platform.is.mobile ? 'text-center' : ''"
+      style="width: 800px"
+    >
+      <div v-if="!$q.platform.is.mobile">
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-h5 text-bold">Tunge</div>
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-caption">Real-Time Online Card Game</div>
+      </div>
+      <q-breadcrumbs
+        v-if="!$q.platform.is.mobile"
+        separator="|"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-body2 text-bold q-my-md"
+        active-color=""
+      >
+        <q-breadcrumbs-el>
+          <img width="25" height="25" src="static/logos/typescript.png" alt="TypeScript" />
+          <span class="q-pl-sm">TypeScript</span>
+        </q-breadcrumbs-el>
+        <q-breadcrumbs-el>
+          <img width="25" height="25" src="static/logos/nextjs.png" alt="Next.js" />
+          <span class="q-pl-sm">Next.js</span>
+        </q-breadcrumbs-el>
+        <q-breadcrumbs-el>
+          <img width="25" height="25" src="static/logos/react.png" alt="React Native" />
+          <span class="q-pl-sm">React Native</span>
+        </q-breadcrumbs-el>
+        <q-breadcrumbs-el>
+          <img width="25" height="25" src="static/logos/partykit.png" alt="PartyKit" />
+          <span class="q-pl-sm">PartyKit</span>
+        </q-breadcrumbs-el>
+      </q-breadcrumbs>
+      <div class="text-body1 text-weight-medium">
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }">
+          Tunge is my take on Spite & Malice, a 2-player card game where you're
+          racing to empty your stack pile before your opponent empties theirs.
+          I built it as a TypeScript monorepo with Turborepo so I could share
+          one game engine between a web version and a React Native app, wrote
+          26 Vitest tests for the engine since card game rules have a lot of
+          edge cases, and added some 3D card animations on both platforms
+          because flat cards felt boring.
         </div>
-        <div
-          v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="text-h6 q-mx-md"
-          :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
-        >
-          Basketball
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-my-lg">
+          All the actual game logic lives on a PartyKit WebSocket server, not
+          the client, so nobody can fake a move or peek at the wrong card. It
+          keeps track of whose turn it is, rejects anything out of turn, and
+          only sends each player their own drawn card so opponents can't see
+          it early.
         </div>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="text-caption">
-          Out of all the sports out there, I believe basketball to be the one I
-          enjoy the most. Most if not all my PE classes throughout elementary,
-          middle, and high school my classmates and I would play basketball.
-          Although I do not watch any professional basketball, I still consider
-          myself to love the sport.
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }">
+          The gnarliest bug I ran into was around the game's namesake move:
+          calling "Tunge" on an opponent who missed a play. By the time
+          someone calls it out, the turn has usually already moved on, so I
+          couldn't just check whose turn it currently was. I ended up
+          tracking down the specific player who messed up directly in the
+          game state instead of trying to infer it after the fact.
         </div>
       </div>
 
-      <div class="q-py-lg q-mx-xl" style="width: 400px">
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }">
-          <img
-            :src="
-              $q.dark.isActive
-                ? 'static/hobbies/familyDM.png'
-                : 'static/hobbies/family.png'
-            "
-            alt="family"
-            style="border: 2px solid; border-radius: 3rem; padding: 16px"
-            :style="
-              $q.dark.isActive
-                ? 'border-color: #673ab7;'
-                : ' border-color: #3F51B5;'
-            "
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <div
-          v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="text-h6 q-mx-md"
+      <q-breadcrumbs
+        separator="|"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="flex flex-center text-body1 text-weight-medium q-mt-xl"
+        active-color=""
+      >
+        <q-breadcrumbs-el
           :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
         >
-          Family and Friends
-        </div>
-        <span
-          v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="text-caption text-weight-bolder"
-          :class="$q.dark.isActive ? 'text-amber' : 'text-grey'"
+          <span
+            :class="$q.dark.isActive ? 'live-demo' : 'demo-lm'"
+            class="q-pr-sm"
+            @click="sourceCode(4)"
+          >
+            View Source Code
+          </span>
+          <img
+            width="25"
+            height="25"
+            :src="
+              $q.dark.isActive
+                ? 'static/socials/github/githubDarkMode.png'
+                : 'static/socials/github/github.png'
+            "
+            alt="GitHub"
+          />
+        </q-breadcrumbs-el>
+      </q-breadcrumbs>
+    </div>
+  </div>
+  <div class="gt-lg" style="padding-bottom: 8rem" />
+  <div class="lt-xl" style="padding-bottom: 3rem" />
+
+  <!-- Couch Potato Farm (IdleSpiral) -->
+  <div class="row reverse justify-evenly items-center q-mx-md">
+    <div>
+      <div v-if="$q.platform.is.mobile" v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mb-sm text-center">
+        <div class="text-h5 text-bold">Couch Potato Farm</div>
+        <div class="text-caption">Desktop Automation Application</div>
+        <q-breadcrumbs
+          separator="|"
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="flex flex-center text-body2 text-bold q-my-md"
+          active-color=""
         >
-          I prefer real talk over small talk
-        </span>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="text-caption">
-          My family and friends are everything to me in my life. Without them I
-          would not be where I am today. Whenever I have free time I enjoy
-          spending that time with those closest to me and engage in meaningful
-          conversations or even just enjoying each other's company.
-        </div>
+          <q-breadcrumbs-el>
+            <img width="25" height="25" src="static/logos/python.png" alt="Python" />
+            <span class="q-pl-sm">Python</span>
+          </q-breadcrumbs-el>
+        </q-breadcrumbs>
       </div>
-      <div class="q-py-lg q-mx-xl" style="width: 400px">
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }">
+      <div v-scroll-animate="{ enter: 'slideInRight', speed: 'faster' }">
+        <template v-if="!couchPotatoMediaMissing">
           <img
-            class="q-mr-md"
-            :src="
-              $q.dark.isActive
-                ? 'static/hobbies/sunDM.png'
-                : 'static/hobbies/sun.png'
-            "
-            alt="sun"
-            style="border: 2px solid; border-radius: 3rem; padding: 15px"
+            class="gt-sm shadow-3"
+            src="static/couchpotatofarm.gif"
+            style="width: 900px; border-radius: 0.5rem; border: 1px solid"
             :style="
               $q.dark.isActive
-                ? 'border-color: #673ab7;'
-                : ' border-color: #3F51B5;'
+                ? 'border-color: rgba(255, 255, 255, 0.12)'
+                : 'border-color: rgba(0, 0, 0, 0.08)'
             "
-            loading="lazy"
-            decoding="async"
+            @error="couchPotatoMediaMissing = true"
           />
           <img
-            :src="
-              $q.dark.isActive
-                ? 'static/hobbies/homeDM.png'
-                : 'static/hobbies/home.png'
-            "
-            alt="Home"
-            style="border: 2px solid; border-radius: 3rem; padding: 15px"
+            class="lt-md shadow-3"
+            src="static/couchpotatofarm.gif"
+            style="width: 100%; border-radius: 0.5rem; border: 1px solid"
             :style="
               $q.dark.isActive
-                ? 'border-color: #673ab7;'
-                : ' border-color: #3F51B5;'
+                ? 'border-color: rgba(255, 255, 255, 0.12)'
+                : 'border-color: rgba(0, 0, 0, 0.08)'
             "
-            loading="lazy"
-            decoding="async"
+            @error="couchPotatoMediaMissing = true"
           />
-        </div>
-        <div
-          v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="text-h6 q-mx-md"
-          :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
-        >
-          Outdoors or Indoors
-        </div>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="text-caption">
-          As a person, I don't have much of a preference for having a good time.
-          I am always down for anything as long as we're enjoying each other's
-          company. Anything outdoors such as bowling, hiking, a walk on the
-          beach, or even sitting at home and playing games.
-        </div>
-      </div>
-      <div class="q-py-xl q-mx-xl" style="width: 400px">
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }">
-          <img
-            :src="
-              $q.dark.isActive
-                ? 'static/hobbies/musicDM.png'
-                : 'static/hobbies/music.png'
+        </template>
+        <template v-else>
+          <div
+            class="gt-sm flex flex-center text-center text-grey-6"
+            style="
+              width: 900px;
+              aspect-ratio: 900 / 400;
+              border: 2px dashed;
+              border-radius: 1rem;
             "
-            alt="Music"
-            style="border: 2px solid; border-radius: 3rem; padding: 10px"
-            :style="
-              $q.dark.isActive
-                ? 'border-color: #673ab7;'
-                : ' border-color: #3F51B5;'
+          >
+            <div>
+              <q-icon name="image" size="48px" />
+              <div class="text-body1 q-mt-sm">Preview coming soon</div>
+            </div>
+          </div>
+          <div
+            class="lt-md flex flex-center text-center text-grey-6"
+            style="
+              width: 100%;
+              aspect-ratio: 900 / 400;
+              border: 2px dashed;
+              border-radius: 1rem;
             "
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <div
-          v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="text-h6 q-mx-md"
-          :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
-        >
-          Music
-        </div>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="text-caption">
-          In my free time or even when I am busy with tasks, music is something
-          I look forward to and never fails to lift me up or make things
-          slightly better. It sets a mood which allows me to unwind after a
-          long/busy day or even when going to the gym.
+          >
+            <div>
+              <q-icon name="image" size="48px" />
+              <div class="text-body1 q-mt-sm">Preview coming soon</div>
+            </div>
+          </div>
+        </template>
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-center text-caption text-grey-8 q-my-md">
+          Figure 2: Couch Potato Farm Preview
         </div>
       </div>
     </div>
+    <div
+      :class="$q.platform.is.mobile ? 'text-center' : ''"
+      style="width: 800px"
+    >
+      <div v-if="!$q.platform.is.mobile">
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-h5 text-bold">Couch Potato Farm</div>
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-caption">Desktop Automation Application</div>
+      </div>
+      <q-breadcrumbs
+        v-if="!$q.platform.is.mobile"
+        separator="|"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-body2 text-bold q-my-md"
+        active-color=""
+      >
+        <q-breadcrumbs-el>
+          <img width="25" height="25" src="static/logos/python.png" alt="Python" />
+          <span class="q-pl-sm">Python</span>
+        </q-breadcrumbs-el>
+      </q-breadcrumbs>
+      <div class="text-body1 text-weight-medium">
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
+          I got tired of babysitting IdleSpiral, a browser farming game that
+          needed a card played every 2-3 minutes, so I wrote a bot to do it
+          for me. It got good enough that I could leave it running overnight
+          and wake up to 140+ battles finished on their own.
+        </div>
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
+          It's a CustomTkinter app with a PyAutoGUI thread doing the actual
+          card-clicking. To know what's happening on screen without hooking
+          into the game itself, it uses Pillow to template-match against
+          screenshots (90% confidence threshold before it'll act) to catch
+          when a battle starts or ends. I also added a way to drop a new card
+          asset in just by pasting a screenshot from the clipboard, instead
+          of manually cropping and saving image files every time a new card
+          got added to the game.
+        </div>
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
+          Turning it into a standalone .exe with PyInstaller broke all the
+          asset paths, since a bundled executable doesn't resolve relative
+          paths the way a script does when you just run it with Python. Fixed
+          it with a quick `sys.frozen` check so the app knows which case it's
+          in and points to the right folder either way.
+        </div>
+      </div>
+
+      <q-breadcrumbs
+        separator="|"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="flex flex-center text-body1 text-weight-medium q-mt-xl"
+        active-color=""
+      >
+        <q-breadcrumbs-el
+          :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
+        >
+          <span
+            :class="$q.dark.isActive ? 'live-demo' : 'demo-lm'"
+            class="q-pr-sm"
+            @click="sourceCode(5)"
+          >
+            View Source Code
+          </span>
+          <img
+            width="25"
+            height="25"
+            :src="
+              $q.dark.isActive
+                ? 'static/socials/github/githubDarkMode.png'
+                : 'static/socials/github/github.png'
+            "
+            alt="GitHub"
+          />
+        </q-breadcrumbs-el>
+      </q-breadcrumbs>
+    </div>
   </div>
+  <div class="gt-lg" style="padding-bottom: 8rem" />
+  <div class="lt-xl" style="padding-bottom: 3rem" />
+
+  <!-- Valorant True Stretch Launch -->
+  <div class="row justify-evenly items-center q-mx-md">
+    <div>
+      <div v-if="$q.platform.is.mobile" v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mb-sm text-center">
+        <div class="text-h5 text-bold">Valorant True Stretch Launch</div>
+        <div class="text-caption">Windows Display Utility</div>
+        <q-breadcrumbs
+          separator="|"
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="flex flex-center text-body2 text-bold q-my-md"
+          active-color=""
+        >
+          <q-breadcrumbs-el>
+            <img width="25" height="25" src="static/logos/python.png" alt="Python" />
+            <span class="q-pl-sm">Python</span>
+          </q-breadcrumbs-el>
+        </q-breadcrumbs>
+      </div>
+      <div v-scroll-animate="{ enter: 'slideInLeft', speed: 'faster' }">
+        <template v-if="!valorantMediaMissing">
+          <img
+            class="gt-sm shadow-3"
+            src="static/valorant.gif"
+            style="width: 900px; border-radius: 0.5rem; border: 1px solid"
+            :style="
+              $q.dark.isActive
+                ? 'border-color: rgba(255, 255, 255, 0.12)'
+                : 'border-color: rgba(0, 0, 0, 0.08)'
+            "
+            @error="valorantMediaMissing = true"
+          />
+          <img
+            class="lt-md shadow-3"
+            src="static/valorant.gif"
+            style="width: 100%; border-radius: 0.5rem; border: 1px solid"
+            :style="
+              $q.dark.isActive
+                ? 'border-color: rgba(255, 255, 255, 0.12)'
+                : 'border-color: rgba(0, 0, 0, 0.08)'
+            "
+            @error="valorantMediaMissing = true"
+          />
+        </template>
+        <template v-else>
+          <div
+            class="gt-sm flex flex-center text-center text-grey-6"
+            style="
+              width: 900px;
+              aspect-ratio: 900 / 400;
+              border: 2px dashed;
+              border-radius: 1rem;
+            "
+          >
+            <div>
+              <q-icon name="image" size="48px" />
+              <div class="text-body1 q-mt-sm">Preview coming soon</div>
+            </div>
+          </div>
+          <div
+            class="lt-md flex flex-center text-center text-grey-6"
+            style="
+              width: 100%;
+              aspect-ratio: 900 / 400;
+              border: 2px dashed;
+              border-radius: 1rem;
+            "
+          >
+            <div>
+              <q-icon name="image" size="48px" />
+              <div class="text-body1 q-mt-sm">Preview coming soon</div>
+            </div>
+          </div>
+        </template>
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-center text-caption text-grey-8 q-my-md">
+          Figure 3: Valorant True Stretch Launch Preview
+        </div>
+      </div>
+    </div>
+    <div
+      :class="$q.platform.is.mobile ? 'text-center' : ''"
+      style="width: 800px"
+    >
+      <div v-if="!$q.platform.is.mobile">
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-h5 text-bold">Valorant True Stretch Launch</div>
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-caption">Windows Display Utility</div>
+      </div>
+      <q-breadcrumbs
+        v-if="!$q.platform.is.mobile"
+        separator="|"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-body2 text-bold q-my-md"
+        active-color=""
+      >
+        <q-breadcrumbs-el>
+          <img width="25" height="25" src="static/logos/python.png" alt="Python" />
+          <span class="q-pl-sm">Python</span>
+        </q-breadcrumbs-el>
+      </q-breadcrumbs>
+      <div class="text-body1 text-weight-medium">
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
+          Valorant doesn't have a real "stretched resolution" option, people
+          usually just fake it by changing their monitor's resolution before
+          launching. I got tired of doing that by hand every time, so I wrote
+          a script that switches to the custom resolution, launches the game,
+          waits for it to close, then switches your desktop back automatically.
+        </div>
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
+          The resolution change goes through the Win32 API with `ctypes`
+          rather than any third-party display library. Launching the game was
+          the trickier part: instead of just opening the Riot Client UI and
+          clicking play, I read the port and auth password out of Riot
+          Client's own lockfile and hit its local launcher API directly. I
+          used `psutil` to watch for when the Valorant process actually opens
+          and closes, so the resolution switches back the moment you quit
+          instead of on some fixed timer that's either too early or too late.
+        </div>
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
+          Packaged into a standalone .exe with PyInstaller and configured
+          entirely through a simple `config.ini` for the Riot Client path and
+          target resolution.
+        </div>
+      </div>
+
+      <q-breadcrumbs
+        separator="|"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="flex flex-center text-body1 text-weight-medium q-mt-xl"
+        active-color=""
+      >
+        <q-breadcrumbs-el
+          :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
+        >
+          <span
+            :class="$q.dark.isActive ? 'live-demo' : 'demo-lm'"
+            class="q-pr-sm"
+            @click="sourceCode(6)"
+          >
+            View Source Code
+          </span>
+          <img
+            width="25"
+            height="25"
+            :src="
+              $q.dark.isActive
+                ? 'static/socials/github/githubDarkMode.png'
+                : 'static/socials/github/github.png'
+            "
+            alt="GitHub"
+          />
+        </q-breadcrumbs-el>
+      </q-breadcrumbs>
+    </div>
+  </div>
+  <div class="gt-lg" style="padding-bottom: 8rem" />
+  <div class="lt-xl" style="padding-bottom: 3rem" />
+
+  <!-- Unlimited Drinks -->
+  <div class="row reverse justify-evenly items-center q-mx-md">
+    <div>
+      <div v-if="$q.platform.is.mobile" v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mb-sm text-center">
+        <div class="text-h5 text-bold">Unlimited Drinks</div>
+        <div class="text-caption">E-commerce Website</div>
+        <q-breadcrumbs
+          separator="|"
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="flex flex-center text-body2 text-bold q-my-md"
+          active-color=""
+        >
+          <q-breadcrumbs-el>
+            <img
+              width="25"
+              height="25"
+              src="static/logos/html.png"
+              alt="HTML"
+            />
+            <span class="q-pl-sm">HTML</span>
+          </q-breadcrumbs-el>
+          <q-breadcrumbs-el>
+            <img width="25" height="25" src="static/logos/css.png" alt="CSS" />
+            <span class="q-pl-sm">CSS</span>
+          </q-breadcrumbs-el>
+          <q-breadcrumbs-el>
+            <img
+              width="25"
+              height="25"
+              src="static/logos/vue-js.png"
+              alt="Vue.js"
+            />
+            <span class="q-pl-sm">Vue.js</span>
+          </q-breadcrumbs-el>
+          <q-breadcrumbs-el>
+            <img width="25" height="25" src="/favicon.ico" alt="Quasar" />
+            <span class="q-pl-sm">Quasar</span>
+          </q-breadcrumbs-el>
+          <q-breadcrumbs-el>
+            <img
+              width="25"
+              height="25"
+              src="static/logos/python.png"
+              alt="Python"
+            />
+            <span class="q-pl-sm">Python</span>
+          </q-breadcrumbs-el>
+          <q-breadcrumbs-el>
+            <img
+              width="25"
+              height="25"
+              src="static/logos/postgresql.png"
+              alt="PostgreSQL"
+            />
+            <span class="q-pl-sm">PostgreSQL</span>
+          </q-breadcrumbs-el>
+        </q-breadcrumbs>
+      </div>
+      <div v-scroll-animate="{ enter: 'slideInRight', speed: 'faster' }">
+        <img
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="gt-sm shadow-3"
+          src="static/unlimiteddrinks.gif"
+          style="width: 900px; border-radius: 0.5rem; border: 1px solid"
+          :style="
+            $q.dark.isActive
+              ? 'border-color: rgba(255, 255, 255, 0.12)'
+              : 'border-color: rgba(0, 0, 0, 0.08)'
+          "
+        />
+        <img
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="lt-md shadow-3"
+          src="static/unlimiteddrinks.gif"
+          style="width: 100%; border-radius: 0.5rem; border: 1px solid"
+          :style="
+            $q.dark.isActive
+              ? 'border-color: rgba(255, 255, 255, 0.12)'
+              : 'border-color: rgba(0, 0, 0, 0.08)'
+          "
+        />
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-center text-caption text-grey-8 q-my-md">
+          Figure 4: Unlimited Drinks Preview
+        </div>
+      </div>
+    </div>
+    <div
+      :class="$q.platform.is.mobile ? 'text-center' : ''"
+      style="width: 800px"
+    >
+      <div v-if="!$q.platform.is.mobile">
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-h5 text-bold">Unlimited Drinks</div>
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-caption">E-commerce Website</div>
+      </div>
+      <q-breadcrumbs
+        v-if="!$q.platform.is.mobile"
+        separator="|"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-body2 text-bold q-my-md"
+        active-color=""
+      >
+        <q-breadcrumbs-el>
+          <img width="25" height="25" src="static/logos/html.png" alt="HTML" />
+          <span class="q-pl-sm">HTML</span>
+        </q-breadcrumbs-el>
+        <q-breadcrumbs-el>
+          <img width="25" height="25" src="static/logos/css.png" alt="CSS" />
+          <span class="q-pl-sm">CSS</span>
+        </q-breadcrumbs-el>
+        <q-breadcrumbs-el>
+          <img
+            width="25"
+            height="25"
+            src="static/logos/vue-js.png"
+            alt="Vue.js"
+          />
+          <span class="q-pl-sm">Vue.js</span>
+        </q-breadcrumbs-el>
+        <q-breadcrumbs-el>
+          <img width="25" height="25" src="/favicon.ico" alt="Quasar" />
+          <span class="q-pl-sm">Quasar</span>
+        </q-breadcrumbs-el>
+        <q-breadcrumbs-el>
+          <img
+            width="25"
+            height="25"
+            src="static/logos/python.png"
+            alt="Python"
+          />
+          <span class="q-pl-sm">Python</span>
+        </q-breadcrumbs-el>
+        <q-breadcrumbs-el>
+          <img
+            width="25"
+            height="25"
+            src="static/logos/postgresql.png"
+            alt="PostgreSQL"
+          />
+          <span class="q-pl-sm">PostgreSQL</span>
+        </q-breadcrumbs-el>
+      </q-breadcrumbs>
+      <div class="text-body1 text-weight-medium">
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
+          The Unlimited Drinks E-commerce Website is a groundbreaking online
+          platform designed to revolutionize the way students access beverages
+          while living on campus. The platform serves as a cost-effective
+          alternative to traditional vending machines by allowing students to
+          order a variety of beverages, including carbonated drinks, energy
+          drinks, juices, and more, in bulk. The convenience factor is further
+          elevated by offering door-to-door delivery directly to their
+          dormitories.
+        </div>
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
+          Key functionalities have been integrated to enhance the overall user
+          experience. Auth0 authentication is implemented for user login and
+          credentials, ensuring a secure and streamlined process. Users logging
+          in with Auth0 are prompted to set up their accounts if they haven't
+          done so, ensuring that only authenticated users can access and utilize
+          the platform. However, users are free to use the platform without
+          creating an account other than when needing to checkout an order.
+        </div>
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
+          The payment process is facilitated through the integration of Stripe,
+          a secure payment gateway, providing users with a reliable and
+          efficient transaction experience. Users have the capability to view
+          their order history, edit account information, and manage multiple
+          addresses within their accounts. The platform's flexibility is evident
+          in the feature that allows users to add or delete addresses as needed.
+        </div>
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
+          To maintain the integrity of the review system, the platform enforces
+          a one-review-per-item policy. This not only encourages authentic and
+          thoughtful reviews but also prevents misuse or spamming of the review
+          system.
+        </div>
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
+          In conclusion, the Unlimited Drinks E-commerce Website is designed
+          with a focus on user convenience, security, and satisfaction. Its
+          features and practices make it a reliable and user-friendly platform
+          for on-campus beverage needs, and its commitment to continuous
+          improvement ensures it stays at the forefront of innovation in the
+          e-commerce space.
+        </div>
+      </div>
+      <q-breadcrumbs
+        separator="|"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="flex flex-center text-body1 text-weight-medium q-mt-xl"
+        active-color=""
+      >
+        <q-breadcrumbs-el
+          :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
+        >
+          <span
+            :class="$q.dark.isActive ? 'live-demo' : 'demo-lm'"
+            @click="liveDemo(2)"
+          >
+            View Live Demo Here
+          </span>
+        </q-breadcrumbs-el>
+        <q-breadcrumbs-el
+          :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
+        >
+          <span
+            :class="$q.dark.isActive ? 'live-demo' : 'demo-lm'"
+            class="q-pr-sm"
+          >
+            View Source Code
+            <q-menu
+              class="bg-dark text-white text-body1 text-center"
+              style="width: 175px"
+              transition-show="jump-down"
+              transition-hide="jump-up"
+              :offset="[0, 15]"
+            >
+              <q-list>
+                <q-item clickable v-close-popup @click="sourceCode(2.1)">
+                  <q-item-section>Frontend</q-item-section>
+                </q-item>
+                <q-separator />
+                <q-item clickable v-close-popup @click="sourceCode(2.2)">
+                  <q-item-section>Backend</q-item-section>
+                </q-item>
+              </q-list>
+            </q-menu>
+          </span>
+          <img
+            width="25"
+            height="25"
+            :src="
+              $q.dark.isActive
+                ? 'static/socials/github/githubDarkMode.png'
+                : 'static/socials/github/github.png'
+            "
+            alt="GitHub"
+          />
+        </q-breadcrumbs-el>
+      </q-breadcrumbs>
+    </div>
+  </div>
+  <div class="gt-lg" style="padding-bottom: 8rem" />
+  <div class="lt-xl" style="padding-bottom: 3rem" />
+
+  <!-- Portfolio -->
+  <div class="row justify-evenly items-center q-mx-md">
+    <div>
+      <div v-if="$q.platform.is.mobile" v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mb-sm text-center">
+        <span class="text-h5 text-bold">Portfolio Website</span>
+        <q-breadcrumbs
+          separator="|"
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="flex flex-center text-body2 text-bold q-my-md"
+          active-color=""
+        >
+          <q-breadcrumbs-el>
+            <img
+              width="25"
+              height="25"
+              src="static/logos/html.png"
+              alt="HTML"
+            />
+            <span class="q-pl-sm">HTML</span>
+          </q-breadcrumbs-el>
+          <q-breadcrumbs-el>
+            <img width="25" height="25" src="static/logos/css.png" alt="CSS" />
+            <span class="q-pl-sm">CSS</span>
+          </q-breadcrumbs-el>
+          <q-breadcrumbs-el>
+            <img
+              width="25"
+              height="25"
+              src="static/logos/vue-js.png"
+              alt="Vue.js"
+            />
+            <span class="q-pl-sm">Vue.js</span>
+          </q-breadcrumbs-el>
+          <q-breadcrumbs-el>
+            <img width="25" height="25" src="/favicon.ico" alt="Quasar" />
+            <span class="q-pl-sm">Quasar</span>
+          </q-breadcrumbs-el>
+        </q-breadcrumbs>
+      </div>
+      <div v-scroll-animate="{ enter: 'slideInLeft', speed: 'faster' }">
+        <img
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="gt-sm shadow-3"
+          src="static/portfolio.gif"
+          style="width: 900px; border-radius: 0.5rem; border: 1px solid"
+          :style="
+            $q.dark.isActive
+              ? 'border-color: rgba(255, 255, 255, 0.12)'
+              : 'border-color: rgba(0, 0, 0, 0.08)'
+          "
+        />
+        <img
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="lt-md shadow-3"
+          src="static/portfolio.gif"
+          style="width: 100%; border-radius: 0.5rem; border: 1px solid"
+          :style="
+            $q.dark.isActive
+              ? 'border-color: rgba(255, 255, 255, 0.12)'
+              : 'border-color: rgba(0, 0, 0, 0.08)'
+          "
+        />
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-center text-caption text-grey-8 q-my-md">
+          Figure 5: Portfolio Website Preview
+        </div>
+      </div>
+    </div>
+    <div
+      :class="$q.platform.is.mobile ? 'text-center' : ''"
+      style="width: 800px"
+    >
+      <div v-if="!$q.platform.is.mobile" v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-h5 text-bold">
+        Portfolio Website
+      </div>
+      <q-breadcrumbs
+        v-if="!$q.platform.is.mobile"
+        separator="|"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-body2 text-bold q-my-md"
+        active-color=""
+      >
+        <q-breadcrumbs-el>
+          <img width="25" height="25" src="static/logos/html.png" alt="HTML" />
+          <span class="q-pl-sm">HTML</span>
+        </q-breadcrumbs-el>
+        <q-breadcrumbs-el>
+          <img width="25" height="25" src="static/logos/css.png" alt="CSS" />
+          <span class="q-pl-sm">CSS</span>
+        </q-breadcrumbs-el>
+        <q-breadcrumbs-el>
+          <img
+            width="25"
+            height="25"
+            src="static/logos/vue-js.png"
+            alt="Vue.js"
+          />
+          <span class="q-pl-sm">Vue.js</span>
+        </q-breadcrumbs-el>
+        <q-breadcrumbs-el>
+          <img width="25" height="25" src="/favicon.ico" alt="Quasar" />
+          <span class="q-pl-sm">Quasar</span>
+        </q-breadcrumbs-el>
+      </q-breadcrumbs>
+      <div class="text-body1 text-weight-medium">
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }">
+          My personal website, the centerpiece of my portfolio, serves as a
+          canvas to express myself digitally by displaying my personality and
+          showcasing my skills and experiences. It is a platform, a place where
+          I share my growth as a human being and journey as a software engineer.
+        </div>
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-my-lg">
+          Before the process of development and producing any code, I needed to
+          choose a tech stack that would enable me to create a modern and
+          immersive user experience. The primary tools in this stack are Vue.js
+          where it was chosen for its simplicity and versatility. Furthermore
+          Quasar, built on top of Vue.js, extends my development capabilities
+          further by providing a rich set of pre-built UI components, custom CSS
+          styling, and a responsive design system. Not only are these great
+          tools to flesh out a website but they are also most familiar to me
+          honed through my current role as a software engineer.
+        </div>
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }">
+          The journey of creating my personal website presented several
+          technical challenges, each of which contributed to my growth as a
+          developer. One particularly intriguing challenge involved implementing
+          viewport-based animations. I aimed to enhance user engagement by
+          triggering animations only when elements entered the viewport.
+          Achieving this effect required a deep dive into Vue.js directives and
+          the utilization of Intersection Observer APIs. Navigating the
+          complexities of scroll events and element visibility checks demanded a
+          meticulous approach. However, these challenges, though technically
+          demanding, ultimately led to the creation of a website that offers a
+          captivating and seamless user experience, exemplifying my dedication
+          to pushing the boundaries of web development.
+        </div>
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
+          My project has been carefully optimized to deliver a seamless user
+          experience across devices including mobile and desktop platforms. By
+          using a responsive web design, the website dynamically changes its
+          layout and style to match a variety of screen sizes, ensuring that it
+          looks and works flawlessly on smartphones, tablets, laptops, and
+          larger desktop monitors. This thoughtful approach to mobile and
+          desktop optimization reflects a commitment to accessibility and
+          usability, and demonstrates a commitment to providing a robust user
+          experience regardless of the devices used to access the site
+        </div>
+
+        <q-breadcrumbs
+          separator="|"
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="flex flex-center text-body1 text-weight-medium q-mt-xl"
+          active-color=""
+        >
+          <q-breadcrumbs-el
+            :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
+          >
+            <span
+              :class="$q.dark.isActive ? 'live-demo' : 'demo-lm'"
+              @click="liveDemo(1)"
+            >
+              View Live Demo Here
+            </span>
+          </q-breadcrumbs-el>
+          <q-breadcrumbs-el
+            :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
+          >
+            <span
+              :class="$q.dark.isActive ? 'live-demo' : 'demo-lm'"
+              class="q-pr-sm"
+              @click="sourceCode(1)"
+            >
+              View Source Code
+            </span>
+            <img
+              width="25"
+              height="25"
+              :src="
+                $q.dark.isActive
+                  ? 'static/socials/github/githubDarkMode.png'
+                  : 'static/socials/github/github.png'
+              "
+              alt="GitHub"
+            />
+          </q-breadcrumbs-el>
+        </q-breadcrumbs>
+      </div>
+    </div>
+  </div>
+  <div class="gt-lg" style="padding-bottom: 8rem" />
+  <div class="lt-xl" style="padding-bottom: 3rem" />
+
+  <!-- ShuttleBus -->
+  <div class="row reverse justify-evenly items-center q-mx-md">
+    <div>
+      <div v-if="$q.platform.is.mobile" v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mb-sm text-center">
+        <div class="text-h5 text-bold">ShuttleBus</div>
+        <q-breadcrumbs
+          separator="|"
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="flex flex-center text-body2 text-bold q-my-md"
+          active-color=""
+        >
+          <q-breadcrumbs-el>
+            <img
+              width="25"
+              height="25"
+              src="static/logos/html.png"
+              alt="HTML"
+            />
+            <span class="q-pl-sm">HTML</span>
+          </q-breadcrumbs-el>
+          <q-breadcrumbs-el>
+            <img width="25" height="25" src="static/logos/css.png" alt="CSS" />
+            <span class="q-pl-sm">CSS</span>
+          </q-breadcrumbs-el>
+          <q-breadcrumbs-el>
+            <img width="25" height="25" src="static/logos/php.png" alt="PHP" />
+            <span class="q-pl-sm">PHP</span>
+          </q-breadcrumbs-el>
+          <q-breadcrumbs-el>
+            <img width="25" height="25" src="static/logos/sql.png" alt="SQL" />
+            <span class="q-pl-sm">MySQL</span>
+          </q-breadcrumbs-el>
+        </q-breadcrumbs>
+      </div>
+
+      <div v-scroll-animate="{ enter: 'slideInRight', speed: 'faster' }">
+        <img
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="gt-sm shadow-3"
+          style="width: 900px; border-radius: 0.5rem; border: 1px solid"
+          :style="
+            $q.dark.isActive
+              ? 'border-color: rgba(255, 255, 255, 0.12)'
+              : 'border-color: rgba(0, 0, 0, 0.08)'
+          "
+          src="static/shuttlebus.png"
+        />
+        <img
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="lt-md shadow-3"
+          style="width: 100%; max-width: 100%; border-radius: 0.5rem; border: 1px solid"
+          :style="
+            $q.dark.isActive
+              ? 'border-color: rgba(255, 255, 255, 0.12)'
+              : 'border-color: rgba(0, 0, 0, 0.08)'
+          "
+          src="static/shuttlebus.png"
+        />
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-center text-caption text-grey-8 q-my-md">
+          Figure 6: ShuttleBus Preview
+        </div>
+      </div>
+    </div>
+    <div
+      :class="$q.platform.is.mobile ? 'text-center' : ''"
+      style="width: 800px"
+    >
+      <div v-if="!$q.platform.is.mobile">
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-h5 text-bold">ShuttleBus</div>
+      </div>
+      <q-breadcrumbs
+        v-if="!$q.platform.is.mobile"
+        separator="|"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-body2 text-bold q-my-md"
+        active-color=""
+      >
+        <q-breadcrumbs-el>
+          <img width="25" height="25" src="static/logos/html.png" alt="HTML" />
+          <span class="q-pl-sm">HTML</span>
+        </q-breadcrumbs-el>
+        <q-breadcrumbs-el>
+          <img width="25" height="25" src="static/logos/css.png" alt="CSS" />
+          <span class="q-pl-sm">CSS</span>
+        </q-breadcrumbs-el>
+        <q-breadcrumbs-el>
+          <img width="25" height="25" src="static/logos/php.png" alt="PHP" />
+          <span class="q-pl-sm">PHP</span>
+        </q-breadcrumbs-el>
+        <q-breadcrumbs-el>
+          <img width="25" height="25" src="static/logos/sql.png" alt="SQL" />
+          <span class="q-pl-sm">MySQL</span>
+        </q-breadcrumbs-el>
+      </q-breadcrumbs>
+      <div class="text-body1 text-weight-medium">
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
+          The Shuttlebus System stands as a collaborative achievement, developed
+          by a dedicated team of six individuals for a university project. This
+          comprehensive application addresses the transportation needs of
+          students, faculty, and campus visitors, offering an intuitive
+          interface that displays real-time information on bus routes, current
+          bus positions, and estimated time of arrival (ETA). The project also
+          encompasses an administrative portal tailored to the needs of bus
+          drivers.
+        </div>
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
+          On the user side, the application provides a user-friendly display of
+          bus routes, showcasing live bus positions and accurate ETAs. This
+          real-time tracking functionality enhances user convenience and
+          facilitates efficient commute planning. Important announcements
+          related to bus schedules or campus events are seamlessly integrated,
+          ensuring users receive timely notifications.
+        </div>
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
+          For administrators, bus drivers access a secure login to initiate and
+          update their routes, contributing to the overall efficiency of the
+          shuttle system. The ability for drivers to update their live locations
+          ensures users have access to the most current information.
+          Additionally, the announcement feature enables drivers to communicate
+          important information directly to users through the application.
+        </div>
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
+          A significant feature of the system is the inclusion of a maintenance
+          request functionality. This empowers users to submit maintenance
+          requests directly through the application, streamlining the process
+          for addressing issues and ensuring the continual reliability of the
+          shuttle service. This user-driven approach enhances overall user
+          experience and contributes to the efficient management of the shuttle
+          system.
+        </div>
+        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
+          The collaborative effort of the team, consisting of six members, is
+          evident in the seamless integration of user and administrative
+          functionalities. The Shuttlebus System not only simplifies
+          transportation logistics for the campus community but also offers a
+          user-centric approach with features designed to enhance communication,
+          efficiency, and maintenance processes. This project serves as a
+          testament to the team's ability to address real-world challenges with
+          innovative solutions, showcasing their skills in system design and
+          collaborative development.
+        </div>
+      </div>
+      <q-breadcrumbs
+        separator="|"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="flex flex-center text-body1 text-weight-medium q-mt-xl"
+        active-color=""
+      >
+        <q-breadcrumbs-el
+          :class="$q.dark.isActive ? 'text-deep-purple' : 'text-indigo'"
+        >
+          <span
+            :class="$q.dark.isActive ? 'live-demo' : 'demo-lm'"
+            class="q-pr-sm"
+            @click="sourceCode(3)"
+          >
+            View Source Code
+          </span>
+          <img
+            width="25"
+            height="25"
+            :src="
+              $q.dark.isActive
+                ? 'static/socials/github/githubDarkMode.png'
+                : 'static/socials/github/github.png'
+            "
+            alt="GitHub"
+          />
+        </q-breadcrumbs-el>
+      </q-breadcrumbs>
+    </div>
+  </div>
+  <div style="padding-bottom: 3rem" />
 
   <FooterComponent />
 </template>

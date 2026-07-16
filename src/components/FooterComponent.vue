@@ -124,38 +124,34 @@ watchEffect(() => {
         decoding="async"
       />
     </div>
-    <div class="row justify-between text-weight-medium text-body1">
-      <div class="q-mt-md">
-        <span
-          class="q-mx-xl"
-          :class="$q.dark.isActive ? 'footer-links-dm' : 'footer-links-lm'"
-          @click="openPDF"
-        >
-          RESUME
-        </span>
-        <span
-          class="q-mx-xl"
-          :class="$q.dark.isActive ? 'footer-links-dm' : 'footer-links-lm'"
-          @click="$router.push('/experience')"
-        >
-          EXPERIENCE
-        </span>
-        <span
-          :class="$q.dark.isActive ? 'footer-links-dm' : 'footer-links-lm'"
-          @click="$router.push('/projects')"
-        >
-          PROJECTS
-        </span>
-      </div>
-      <div class="row q-mx-xl">
-        <span
-          class="q-mt-md q-mr-lg"
-          :class="$q.dark.isActive ? 'footer-links-dm' : 'footer-links-lm'"
-          @click="$router.push('/contact')"
-        >
-          CONTACT ME
-        </span>
-      </div>
+    <div
+      class="row justify-center items-center text-weight-medium text-body1 q-mt-md"
+      style="gap: 4rem"
+    >
+      <span
+        :class="$q.dark.isActive ? 'footer-links-dm' : 'footer-links-lm'"
+        @click="openPDF"
+      >
+        RESUME
+      </span>
+      <span
+        :class="$q.dark.isActive ? 'footer-links-dm' : 'footer-links-lm'"
+        @click="$router.push('/experience')"
+      >
+        EXPERIENCE
+      </span>
+      <span
+        :class="$q.dark.isActive ? 'footer-links-dm' : 'footer-links-lm'"
+        @click="$router.push('/about')"
+      >
+        ABOUT ME
+      </span>
+      <span
+        :class="$q.dark.isActive ? 'footer-links-dm' : 'footer-links-lm'"
+        @click="$router.push('/contact')"
+      >
+        CONTACT ME
+      </span>
     </div>
   </div>
   <div
@@ -188,9 +184,9 @@ watchEffect(() => {
         <div
           class="q-my-md"
           :class="$q.dark.isActive ? 'text-amber' : 'text-indigo'"
-          @click="$router.push('/projects')"
+          @click="$router.push('/about')"
         >
-          PROJECTS
+          ABOUT ME
         </div>
         <div
           class="q-my-md"

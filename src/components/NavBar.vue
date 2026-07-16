@@ -10,7 +10,11 @@ const toggleDarkMode = () => {
 };
 
 const toggleMenu = ref(false);
-const navList = ["EXPERIENCE", "PROJECTS", "CONTACT"];
+const navList = [
+  { label: "EXPERIENCE", path: "/experience" },
+  { label: "ABOUT ME", path: "/about" },
+  { label: "CONTACT", path: "/contact" },
+];
 const mainLogo = ref("static/logoDarkMode.png");
 
 const openPDF = () => {
@@ -50,11 +54,11 @@ watchEffect(() => {
             class="cursor-pointer"
             :class="$q.dark.isActive ? 'nav-link' : 'nav-link-LM'"
             v-for="nav in navList"
-            :key="nav"
-            @click="$router.push(`/${nav.toLowerCase()}`)"
+            :key="nav.label"
+            @click="$router.push(nav.path)"
           >
             <div class="q-mx-md q-mt-sm q-px-md">
-              {{ nav }}
+              {{ nav.label }}
             </div>
           </div>
           <div
@@ -118,13 +122,13 @@ watchEffect(() => {
                 class="q-pa-lg q-mx-*"
                 :class="$q.dark.isActive ? 'nav-link' : 'nav-link-LM'"
                 v-for="nav in navList"
-                :key="nav"
+                :key="nav.label"
               >
                 <span
                   class="cursor-pointer q-pa-lg"
-                  @click="$router.push(`/${nav.toLowerCase()}`)"
+                  @click="$router.push(nav.path)"
                 >
-                  {{ nav }}
+                  {{ nav.label }}
                 </span>
               </div>
               <div

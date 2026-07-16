@@ -3,7 +3,14 @@ const routes = [
     path: "/",
     component: () => import("pages/IndexPage.vue"),
     meta: {
-      title: "Meet Hamzeh!",
+      title: "Hamzeh Abdallah | Projects",
+    },
+  },
+  {
+    path: "/about",
+    component: () => import("pages/AboutView.vue"),
+    meta: {
+      title: "About Me",
     },
   },
   {
@@ -19,32 +26,6 @@ const routes = [
     meta: {
       title: "Experience",
     },
-  },
-  {
-    path: "/projects",
-    children: [
-      {
-        path: "",
-        component: () => import("pages/ProjectView.vue"),
-        meta: {
-          title: "Projects",
-        },
-      },
-      // {
-      //   path: "Project1",
-      //   component: () => import("pages/ProjectView.vue"),
-      //   meta: {
-      //     title: "Projects",
-      //   },
-      // },
-      // {
-      //   path: "Project2",
-      //   component: () => import("pages/ProjectView.vue"),
-      //   meta: {
-      //     title: "Projects",
-      //   },
-      // }
-    ],
   },
 
   // Always leave this as last one,
