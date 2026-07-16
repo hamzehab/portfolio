@@ -76,13 +76,15 @@ function liveDemo(project_id) {
 
   <div class="q-mx-md q-pt-xl">
     <div
-      v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="gt-xs text-weight-bolder text-h4 q-pb-md"
+      v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }"
+      class="gt-xs text-weight-bolder text-h4 q-pb-md"
       :class="$q.dark.isActive ? 'text-grey-8' : 'text-grey-6'"
     >
       My Projects
     </div>
     <div
-      v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }" class="lt-sm text-center text-weight-bolder text-h4 q-pb-md"
+      v-scroll-animate="{ enter: 'fadeIn', speed: 'slow' }"
+      class="lt-sm text-center text-weight-bolder text-h4 q-pb-md"
       :class="$q.dark.isActive ? 'text-grey-8' : 'text-grey-6'"
     >
       My Projects
@@ -95,54 +97,87 @@ function liveDemo(project_id) {
   <!-- Tunge -->
   <div class="row justify-evenly items-center q-mx-md">
     <div>
-      <div v-if="$q.platform.is.mobile" v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mb-sm text-center">
+      <div
+        v-if="$q.platform.is.mobile"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+        class="q-mb-sm text-center"
+      >
         <div class="text-h5 text-bold">Tunge</div>
         <div class="text-caption">Real-Time Online Card Game</div>
         <q-breadcrumbs
           separator="|"
-          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="flex flex-center text-body2 text-bold q-my-md"
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="flex flex-center text-body2 text-bold q-my-md"
           active-color=""
         >
           <q-breadcrumbs-el>
-            <img width="25" height="25" src="static/logos/typescript.png" alt="TypeScript" />
+            <img
+              width="25"
+              height="25"
+              src="static/logos/typescript.png"
+              alt="TypeScript"
+            />
             <span class="q-pl-sm">TypeScript</span>
           </q-breadcrumbs-el>
           <q-breadcrumbs-el>
-            <img width="25" height="25" src="static/logos/nextjs.png" alt="Next.js" />
+            <img
+              width="25"
+              height="25"
+              src="static/logos/nextjs.png"
+              alt="Next.js"
+            />
             <span class="q-pl-sm">Next.js</span>
           </q-breadcrumbs-el>
           <q-breadcrumbs-el>
-            <img width="25" height="25" src="static/logos/react.png" alt="React Native" />
+            <img
+              width="25"
+              height="25"
+              src="static/logos/react.png"
+              alt="React Native"
+            />
             <span class="q-pl-sm">React Native</span>
           </q-breadcrumbs-el>
           <q-breadcrumbs-el>
-            <img width="25" height="25" src="static/logos/partykit.png" alt="PartyKit" />
+            <img
+              width="25"
+              height="25"
+              src="static/logos/partykit.png"
+              alt="PartyKit"
+            />
             <span class="q-pl-sm">PartyKit</span>
           </q-breadcrumbs-el>
         </q-breadcrumbs>
       </div>
       <div v-scroll-animate="{ enter: 'slideInLeft', speed: 'faster' }">
         <template v-if="!tungeMediaMissing">
-          <img
+          <video
             class="gt-sm shadow-3"
-            src="static/tunge.gif"
+            src="static/tunge.mp4"
             style="width: 900px; border-radius: 0.5rem; border: 1px solid"
             :style="
               $q.dark.isActive
                 ? 'border-color: rgba(255, 255, 255, 0.12)'
                 : 'border-color: rgba(0, 0, 0, 0.08)'
             "
+            autoplay
+            muted
+            loop
+            playsinline
             @error="tungeMediaMissing = true"
           />
-          <img
+          <video
             class="lt-md shadow-3"
-            src="static/tunge.gif"
+            src="static/tunge.mp4"
             style="width: 100%; border-radius: 0.5rem; border: 1px solid"
             :style="
               $q.dark.isActive
                 ? 'border-color: rgba(255, 255, 255, 0.12)'
                 : 'border-color: rgba(0, 0, 0, 0.08)'
             "
+            autoplay
+            muted
+            loop
+            playsinline
             @error="tungeMediaMissing = true"
           />
         </template>
@@ -176,7 +211,10 @@ function liveDemo(project_id) {
             </div>
           </div>
         </template>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-center text-caption text-grey-8 q-my-md">
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="text-center text-caption text-grey-8 q-my-md"
+        >
           Figure 1: Tunge Preview
         </div>
       </div>
@@ -186,62 +224,116 @@ function liveDemo(project_id) {
       style="width: 800px"
     >
       <div v-if="!$q.platform.is.mobile">
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-h5 text-bold">Tunge</div>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-caption">Real-Time Online Card Game</div>
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="text-h5 text-bold"
+        >
+          Tunge
+        </div>
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="text-caption"
+        >
+          Real-Time Online Card Game
+        </div>
       </div>
       <q-breadcrumbs
         v-if="!$q.platform.is.mobile"
         separator="|"
-        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-body2 text-bold q-my-md"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+        class="text-body2 text-bold q-my-md"
         active-color=""
       >
         <q-breadcrumbs-el>
-          <img width="25" height="25" src="static/logos/typescript.png" alt="TypeScript" />
+          <img
+            width="25"
+            height="25"
+            src="static/logos/typescript.png"
+            alt="TypeScript"
+          />
           <span class="q-pl-sm">TypeScript</span>
         </q-breadcrumbs-el>
         <q-breadcrumbs-el>
-          <img width="25" height="25" src="static/logos/nextjs.png" alt="Next.js" />
+          <img
+            width="25"
+            height="25"
+            src="static/logos/nextjs.png"
+            alt="Next.js"
+          />
           <span class="q-pl-sm">Next.js</span>
         </q-breadcrumbs-el>
         <q-breadcrumbs-el>
-          <img width="25" height="25" src="static/logos/react.png" alt="React Native" />
+          <img
+            width="25"
+            height="25"
+            src="static/logos/react.png"
+            alt="React Native"
+          />
           <span class="q-pl-sm">React Native</span>
         </q-breadcrumbs-el>
         <q-breadcrumbs-el>
-          <img width="25" height="25" src="static/logos/partykit.png" alt="PartyKit" />
+          <img
+            width="25"
+            height="25"
+            src="static/logos/partykit.png"
+            alt="PartyKit"
+          />
           <span class="q-pl-sm">PartyKit</span>
         </q-breadcrumbs-el>
       </q-breadcrumbs>
       <div class="text-body1 text-weight-medium">
         <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }">
-          Tunge is my take on Spite & Malice, a 2-player card game where you're
-          racing to empty your stack pile before your opponent empties theirs.
-          I built it as a TypeScript monorepo with Turborepo so I could share
-          one game engine between a web version and a React Native app, wrote
-          26 Vitest tests for the engine since card game rules have a lot of
-          edge cases, and added some 3D card animations on both platforms
-          because flat cards felt boring.
+          Tunge is a card game my dad and aunt taught me growing up, and for
+          years the only place I ever played it was at my cousin's house. I
+          decided to build a version I could actually play online, so I wouldn't
+          have to wait for a family gathering to get a game in.
         </div>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-my-lg">
-          All the actual game logic lives on a PartyKit WebSocket server, not
-          the client, so nobody can fake a move or peek at the wrong card. It
-          keeps track of whose turn it is, rejects anything out of turn, and
-          only sends each player their own drawn card so opponents can't see
-          it early.
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="q-my-lg"
+        >
+          If you haven't played it, it's a two-player race: you're each trying
+          to empty a 13-card stack pile before the other person does, while
+          building up shared foundation piles and a shared floor layout in the
+          middle. The mechanic the game is named after is "Tunge," where if your
+          opponent had an obvious play sitting in front of them and didn't take
+          it, you can call them out on it and force a penalty. It rewards paying
+          attention as much as it rewards making good moves.
+        </div>
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="q-my-lg"
+        >
+          I built it as a TypeScript monorepo using Turborepo, so I could write
+          the game engine once and share it between a web app and a React Native
+          app instead of maintaining the rules twice. It's the kind of thing
+          where getting the rules exactly right actually matters, since the game
+          has a lot of small exceptions around empty slots, forced moves, and
+          what counts as a valid play, so I wrote 26 Vitest tests around the
+          engine to make sure I wasn't missing edge cases.
+        </div>
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="q-my-lg"
+        >
+          All the game logic runs on a PartyKit WebSocket server instead of the
+          client. It keeps track of whose turn it is, rejects anything out of
+          turn, and only sends each player their own drawn card, so nobody can
+          peek at a card early or fake a move by messing with client state.
         </div>
         <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }">
-          The gnarliest bug I ran into was around the game's namesake move:
-          calling "Tunge" on an opponent who missed a play. By the time
-          someone calls it out, the turn has usually already moved on, so I
-          couldn't just check whose turn it currently was. I ended up
-          tracking down the specific player who messed up directly in the
-          game state instead of trying to infer it after the fact.
+          I also spent time adding 3D card animations on both platforms for
+          dealing and drawing cards, since having them just snap into place felt
+          flat compared to how a real deck actually moves. It's still a work in
+          progress, so web and mobile aren't playable end-to-end yet, but the
+          core engine and the server are solid.
         </div>
       </div>
 
       <q-breadcrumbs
         separator="|"
-        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="flex flex-center text-body1 text-weight-medium q-mt-xl"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+        class="flex flex-center text-body1 text-weight-medium q-mt-xl"
         active-color=""
       >
         <q-breadcrumbs-el
@@ -274,42 +366,60 @@ function liveDemo(project_id) {
   <!-- Couch Potato Farm (IdleSpiral) -->
   <div class="row reverse justify-evenly items-center q-mx-md">
     <div>
-      <div v-if="$q.platform.is.mobile" v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mb-sm text-center">
+      <div
+        v-if="$q.platform.is.mobile"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+        class="q-mb-sm text-center"
+      >
         <div class="text-h5 text-bold">Couch Potato Farm</div>
         <div class="text-caption">Desktop Automation Application</div>
         <q-breadcrumbs
           separator="|"
-          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="flex flex-center text-body2 text-bold q-my-md"
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="flex flex-center text-body2 text-bold q-my-md"
           active-color=""
         >
           <q-breadcrumbs-el>
-            <img width="25" height="25" src="static/logos/python.png" alt="Python" />
+            <img
+              width="25"
+              height="25"
+              src="static/logos/python.png"
+              alt="Python"
+            />
             <span class="q-pl-sm">Python</span>
           </q-breadcrumbs-el>
         </q-breadcrumbs>
       </div>
       <div v-scroll-animate="{ enter: 'slideInRight', speed: 'faster' }">
         <template v-if="!couchPotatoMediaMissing">
-          <img
+          <video
             class="gt-sm shadow-3"
-            src="static/couchpotatofarm.gif"
+            src="static/couchpotatofarm.mp4"
             style="width: 900px; border-radius: 0.5rem; border: 1px solid"
             :style="
               $q.dark.isActive
                 ? 'border-color: rgba(255, 255, 255, 0.12)'
                 : 'border-color: rgba(0, 0, 0, 0.08)'
             "
+            autoplay
+            muted
+            loop
+            playsinline
             @error="couchPotatoMediaMissing = true"
           />
-          <img
+          <video
             class="lt-md shadow-3"
-            src="static/couchpotatofarm.gif"
+            src="static/couchpotatofarm.mp4"
             style="width: 100%; border-radius: 0.5rem; border: 1px solid"
             :style="
               $q.dark.isActive
                 ? 'border-color: rgba(255, 255, 255, 0.12)'
                 : 'border-color: rgba(0, 0, 0, 0.08)'
             "
+            autoplay
+            muted
+            loop
+            playsinline
             @error="couchPotatoMediaMissing = true"
           />
         </template>
@@ -343,8 +453,11 @@ function liveDemo(project_id) {
             </div>
           </div>
         </template>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-center text-caption text-grey-8 q-my-md">
-          Figure 2: Couch Potato Farm Preview
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="text-center text-caption text-grey-8 q-my-md"
+        >
+          Figure 2: IdleSpiral Preview
         </div>
       </div>
     </div>
@@ -353,49 +466,91 @@ function liveDemo(project_id) {
       style="width: 800px"
     >
       <div v-if="!$q.platform.is.mobile">
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-h5 text-bold">Couch Potato Farm</div>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-caption">Desktop Automation Application</div>
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="text-h5 text-bold"
+        >
+          IdleSpiral
+        </div>
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="text-caption"
+        >
+          Desktop Automation Application
+        </div>
       </div>
       <q-breadcrumbs
         v-if="!$q.platform.is.mobile"
         separator="|"
-        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-body2 text-bold q-my-md"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+        class="text-body2 text-bold q-my-md"
         active-color=""
       >
         <q-breadcrumbs-el>
-          <img width="25" height="25" src="static/logos/python.png" alt="Python" />
+          <img
+            width="25"
+            height="25"
+            src="static/logos/python.png"
+            alt="Python"
+          />
           <span class="q-pl-sm">Python</span>
         </q-breadcrumbs-el>
       </q-breadcrumbs>
       <div class="text-body1 text-weight-medium">
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
-          I got tired of babysitting IdleSpiral, a browser farming game that
-          needed a card played every 2-3 minutes, so I wrote a bot to do it
-          for me. It got good enough that I could leave it running overnight
-          and wake up to 140+ battles finished on their own.
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="q-mt-lg"
+        >
+          Wizard101 is a card-based MMO. Combat is turn-based, you build a deck
+          and cast spell cards to fight. Couch Potato is a garden plant in the
+          game that only drops from grinding the same battle over and over, so
+          getting a decent stock means repeating one fight a couple hundred
+          times. I got tired of manually re-casting the same few cards every 2-3
+          minutes for hours, so I wrote a bot to do it for me instead. It got
+          good enough that I could leave it running overnight and wake up to
+          140+ battles finished on their own.
         </div>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="q-mt-lg"
+        >
           It's a CustomTkinter app with a PyAutoGUI thread doing the actual
-          card-clicking. To know what's happening on screen without hooking
-          into the game itself, it uses Pillow to template-match against
-          screenshots (90% confidence threshold before it'll act) to catch
-          when a battle starts or ends. I also added a way to drop a new card
-          asset in just by pasting a screenshot from the clipboard, instead
-          of manually cropping and saving image files every time a new card
-          got added to the game.
+          clicking. To know what's happening on screen without touching the game
+          itself, it uses image matching with a 90% confidence threshold to
+          detect when a battle starts and when it's won. It tries up to three
+          times to find and click an enchantment card followed by a base damage
+          card, and bails out of the sequence entirely if either one isn't found
+          on screen. After that, it switches to actually retrying, checking
+          every half second for either a win or the enchanted damage card, and
+          clicking the enchanted card whenever it shows up, until a win is
+          detected. Once it wins, it holds down the movement key to auto-walk to
+          the next fight and waits for the next battle to start before looping
+          again.
         </div>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
-          Turning it into a standalone .exe with PyInstaller broke all the
-          asset paths, since a bundled executable doesn't resolve relative
-          paths the way a script does when you just run it with Python. Fixed
-          it with a quick `sys.frozen` check so the app knows which case it's
-          in and points to the right folder either way.
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="q-mt-lg"
+        >
+          I also added a way to paste a screenshot straight from the clipboard
+          to register a new card image, instead of manually cropping and saving
+          a file every time a new card showed up in the game.
+        </div>
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="q-mt-lg"
+        >
+          Turning it into a standalone .exe with PyInstaller broke all the asset
+          paths, since a bundled executable doesn't resolve relative paths the
+          way a script does when you run it with Python directly. Fixed it with
+          a quick check for whether the app is running as an exe or a script, so
+          it knows which folder to point to either way.
         </div>
       </div>
 
       <q-breadcrumbs
         separator="|"
-        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="flex flex-center text-body1 text-weight-medium q-mt-xl"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+        class="flex flex-center text-body1 text-weight-medium q-mt-xl"
         active-color=""
       >
         <q-breadcrumbs-el
@@ -428,16 +583,26 @@ function liveDemo(project_id) {
   <!-- Valorant True Stretch Launch -->
   <div class="row justify-evenly items-center q-mx-md">
     <div>
-      <div v-if="$q.platform.is.mobile" v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mb-sm text-center">
+      <div
+        v-if="$q.platform.is.mobile"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+        class="q-mb-sm text-center"
+      >
         <div class="text-h5 text-bold">Valorant True Stretch Launch</div>
         <div class="text-caption">Windows Display Utility</div>
         <q-breadcrumbs
           separator="|"
-          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="flex flex-center text-body2 text-bold q-my-md"
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="flex flex-center text-body2 text-bold q-my-md"
           active-color=""
         >
           <q-breadcrumbs-el>
-            <img width="25" height="25" src="static/logos/python.png" alt="Python" />
+            <img
+              width="25"
+              height="25"
+              src="static/logos/python.png"
+              alt="Python"
+            />
             <span class="q-pl-sm">Python</span>
           </q-breadcrumbs-el>
         </q-breadcrumbs>
@@ -446,7 +611,7 @@ function liveDemo(project_id) {
         <template v-if="!valorantMediaMissing">
           <img
             class="gt-sm shadow-3"
-            src="static/valorant.gif"
+            src="static/valorant.png"
             style="width: 900px; border-radius: 0.5rem; border: 1px solid"
             :style="
               $q.dark.isActive
@@ -457,7 +622,7 @@ function liveDemo(project_id) {
           />
           <img
             class="lt-md shadow-3"
-            src="static/valorant.gif"
+            src="static/valorant.png"
             style="width: 100%; border-radius: 0.5rem; border: 1px solid"
             :style="
               $q.dark.isActive
@@ -497,7 +662,10 @@ function liveDemo(project_id) {
             </div>
           </div>
         </template>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-center text-caption text-grey-8 q-my-md">
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="text-center text-caption text-grey-8 q-my-md"
+        >
           Figure 3: Valorant True Stretch Launch Preview
         </div>
       </div>
@@ -507,48 +675,78 @@ function liveDemo(project_id) {
       style="width: 800px"
     >
       <div v-if="!$q.platform.is.mobile">
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-h5 text-bold">Valorant True Stretch Launch</div>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-caption">Windows Display Utility</div>
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="text-h5 text-bold"
+        >
+          Valorant True Stretch Launch
+        </div>
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="text-caption"
+        >
+          Windows Display Utility
+        </div>
       </div>
       <q-breadcrumbs
         v-if="!$q.platform.is.mobile"
         separator="|"
-        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-body2 text-bold q-my-md"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+        class="text-body2 text-bold q-my-md"
         active-color=""
       >
         <q-breadcrumbs-el>
-          <img width="25" height="25" src="static/logos/python.png" alt="Python" />
+          <img
+            width="25"
+            height="25"
+            src="static/logos/python.png"
+            alt="Python"
+          />
           <span class="q-pl-sm">Python</span>
         </q-breadcrumbs-el>
       </q-breadcrumbs>
       <div class="text-body1 text-weight-medium">
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
-          Valorant doesn't have a real "stretched resolution" option, people
-          usually just fake it by changing their monitor's resolution before
-          launching. I got tired of doing that by hand every time, so I wrote
-          a script that switches to the custom resolution, launches the game,
-          waits for it to close, then switches your desktop back automatically.
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="q-mt-lg"
+        >
+          I play Valorant with a stretched resolution because it makes
+          everything on screen look a bit bigger, but the game doesn't actually
+          have that as a real setting. The usual workaround is changing your
+          monitor's resolution by hand right before you launch, then switching
+          it back after, which gets old fast when you're doing it every session.
+          So I wrote a script that just handles the whole thing on its own:
+          switch to the custom resolution, launch the game, wait until it
+          closes, then switch the desktop back automatically.
         </div>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
-          The resolution change goes through the Win32 API with `ctypes`
-          rather than any third-party display library. Launching the game was
-          the trickier part: instead of just opening the Riot Client UI and
-          clicking play, I read the port and auth password out of Riot
-          Client's own lockfile and hit its local launcher API directly. I
-          used `psutil` to watch for when the Valorant process actually opens
-          and closes, so the resolution switches back the moment you quit
-          instead of on some fixed timer that's either too early or too late.
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="q-mt-lg"
+        >
+          The resolution swap itself was easy, just calling into the Win32 API
+          directly with ctypes instead of pulling in a whole display library for
+          one function. Actually launching the game turned out to be the harder
+          part. Clicking through the Riot Client UI felt too fragile to automate
+          reliably, so instead I pulled the port and auth password out of Riot
+          Client's own lockfile and hit its local launcher API directly. I also
+          used psutil to watch the Valorant process itself, so the resolution
+          switches back the second you quit instead of guessing with some fixed
+          timer that's either too early or too late.
         </div>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
-          Packaged into a standalone .exe with PyInstaller and configured
-          entirely through a simple `config.ini` for the Riot Client path and
-          target resolution.
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="q-mt-lg"
+        >
+          It's packaged as a standalone .exe with PyInstaller, and everything
+          you'd want to change, like the Riot Client path or your target
+          resolution, just lives in a simple config.ini.
         </div>
       </div>
 
       <q-breadcrumbs
         separator="|"
-        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="flex flex-center text-body1 text-weight-medium q-mt-xl"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+        class="flex flex-center text-body1 text-weight-medium q-mt-xl"
         active-color=""
       >
         <q-breadcrumbs-el
@@ -581,12 +779,17 @@ function liveDemo(project_id) {
   <!-- Unlimited Drinks -->
   <div class="row reverse justify-evenly items-center q-mx-md">
     <div>
-      <div v-if="$q.platform.is.mobile" v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mb-sm text-center">
+      <div
+        v-if="$q.platform.is.mobile"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+        class="q-mb-sm text-center"
+      >
         <div class="text-h5 text-bold">Unlimited Drinks</div>
         <div class="text-caption">E-commerce Website</div>
         <q-breadcrumbs
           separator="|"
-          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="flex flex-center text-body2 text-bold q-my-md"
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="flex flex-center text-body2 text-bold q-my-md"
           active-color=""
         >
           <q-breadcrumbs-el>
@@ -637,7 +840,8 @@ function liveDemo(project_id) {
       </div>
       <div v-scroll-animate="{ enter: 'slideInRight', speed: 'faster' }">
         <img
-          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="gt-sm shadow-3"
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="gt-sm shadow-3"
           src="static/unlimiteddrinks.gif"
           style="width: 900px; border-radius: 0.5rem; border: 1px solid"
           :style="
@@ -647,7 +851,8 @@ function liveDemo(project_id) {
           "
         />
         <img
-          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="lt-md shadow-3"
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="lt-md shadow-3"
           src="static/unlimiteddrinks.gif"
           style="width: 100%; border-radius: 0.5rem; border: 1px solid"
           :style="
@@ -656,7 +861,10 @@ function liveDemo(project_id) {
               : 'border-color: rgba(0, 0, 0, 0.08)'
           "
         />
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-center text-caption text-grey-8 q-my-md">
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="text-center text-caption text-grey-8 q-my-md"
+        >
           Figure 4: Unlimited Drinks Preview
         </div>
       </div>
@@ -666,13 +874,24 @@ function liveDemo(project_id) {
       style="width: 800px"
     >
       <div v-if="!$q.platform.is.mobile">
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-h5 text-bold">Unlimited Drinks</div>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-caption">E-commerce Website</div>
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="text-h5 text-bold"
+        >
+          Unlimited Drinks
+        </div>
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="text-caption"
+        >
+          E-commerce Website
+        </div>
       </div>
       <q-breadcrumbs
         v-if="!$q.platform.is.mobile"
         separator="|"
-        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-body2 text-bold q-my-md"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+        class="text-body2 text-bold q-my-md"
         active-color=""
       >
         <q-breadcrumbs-el>
@@ -716,51 +935,60 @@ function liveDemo(project_id) {
         </q-breadcrumbs-el>
       </q-breadcrumbs>
       <div class="text-body1 text-weight-medium">
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
-          The Unlimited Drinks E-commerce Website is a groundbreaking online
-          platform designed to revolutionize the way students access beverages
-          while living on campus. The platform serves as a cost-effective
-          alternative to traditional vending machines by allowing students to
-          order a variety of beverages, including carbonated drinks, energy
-          drinks, juices, and more, in bulk. The convenience factor is further
-          elevated by offering door-to-door delivery directly to their
-          dormitories.
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="q-mt-lg"
+        >
+          Unlimited Drinks started as a class project, but it turned into
+          something I actually wanted to build for real. It's an online delivery
+          service for students living in dorms, so you can order drinks in bulk
+          and get them dropped off instead of dealing with a vending machine one
+          bill at a time.
         </div>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
-          Key functionalities have been integrated to enhance the overall user
-          experience. Auth0 authentication is implemented for user login and
-          credentials, ensuring a secure and streamlined process. Users logging
-          in with Auth0 are prompted to set up their accounts if they haven't
-          done so, ensuring that only authenticated users can access and utilize
-          the platform. However, users are free to use the platform without
-          creating an account other than when needing to checkout an order.
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="q-mt-lg"
+        >
+          The frontend is Vue and Quasar, the backend is FastAPI with Postgres.
+          You can browse everything, search, and add stuff to your cart without
+          an account. Auth0 only kicks in once you actually go to checkout, or
+          if you want to see your account, your past orders, or your saved
+          addresses, since those are the only pages that actually need to know
+          who you are.
         </div>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
-          The payment process is facilitated through the integration of Stripe,
-          a secure payment gateway, providing users with a reliable and
-          efficient transaction experience. Users have the capability to view
-          their order history, edit account information, and manage multiple
-          addresses within their accounts. The platform's flexibility is evident
-          in the feature that allows users to add or delete addresses as needed.
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="q-mt-lg"
+        >
+          When you set up an account, it saves a default address along with it.
+          You can add more addresses after that and mark whichever one you want
+          as the default, so ordering for a friend's dorm doesn't mean
+          overwriting your own info.
         </div>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
-          To maintain the integrity of the review system, the platform enforces
-          a one-review-per-item policy. This not only encourages authentic and
-          thoughtful reviews but also prevents misuse or spamming of the review
-          system.
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="q-mt-lg"
+        >
+          Checkout goes through Stripe. The backend builds the actual charge
+          from whatever's in your cart at that moment instead of trusting
+          anything the frontend sends it, and the order itself only gets created
+          once Stripe's webhook confirms the payment actually went through, not
+          the second the checkout page redirects you. So there's no way to fake
+          an order by just hitting the success page directly.
         </div>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
-          In conclusion, the Unlimited Drinks E-commerce Website is designed
-          with a focus on user convenience, security, and satisfaction. Its
-          features and practices make it a reliable and user-friendly platform
-          for on-campus beverage needs, and its commitment to continuous
-          improvement ensures it stays at the forefront of innovation in the
-          e-commerce space.
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="q-mt-lg"
+        >
+          Reviews are capped at one per item per account, checked on the backend
+          before it lets a new one through, and the product page shows a
+          breakdown of what percentage of reviews landed at each star rating.
         </div>
       </div>
       <q-breadcrumbs
         separator="|"
-        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="flex flex-center text-body1 text-weight-medium q-mt-xl"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+        class="flex flex-center text-body1 text-weight-medium q-mt-xl"
         active-color=""
       >
         <q-breadcrumbs-el
@@ -819,11 +1047,16 @@ function liveDemo(project_id) {
   <!-- Portfolio -->
   <div class="row justify-evenly items-center q-mx-md">
     <div>
-      <div v-if="$q.platform.is.mobile" v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mb-sm text-center">
+      <div
+        v-if="$q.platform.is.mobile"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+        class="q-mb-sm text-center"
+      >
         <span class="text-h5 text-bold">Portfolio Website</span>
         <q-breadcrumbs
           separator="|"
-          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="flex flex-center text-body2 text-bold q-my-md"
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="flex flex-center text-body2 text-bold q-my-md"
           active-color=""
         >
           <q-breadcrumbs-el>
@@ -855,27 +1088,40 @@ function liveDemo(project_id) {
         </q-breadcrumbs>
       </div>
       <div v-scroll-animate="{ enter: 'slideInLeft', speed: 'faster' }">
-        <img
-          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="gt-sm shadow-3"
-          src="static/portfolio.gif"
+        <video
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="gt-sm shadow-3"
+          src="static/portfolio.mp4"
           style="width: 900px; border-radius: 0.5rem; border: 1px solid"
           :style="
             $q.dark.isActive
               ? 'border-color: rgba(255, 255, 255, 0.12)'
               : 'border-color: rgba(0, 0, 0, 0.08)'
           "
+          autoplay
+          muted
+          loop
+          playsinline
         />
-        <img
-          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="lt-md shadow-3"
-          src="static/portfolio.gif"
+        <video
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="lt-md shadow-3"
+          src="static/portfolio.mp4"
           style="width: 100%; border-radius: 0.5rem; border: 1px solid"
           :style="
             $q.dark.isActive
               ? 'border-color: rgba(255, 255, 255, 0.12)'
               : 'border-color: rgba(0, 0, 0, 0.08)'
           "
+          autoplay
+          muted
+          loop
+          playsinline
         />
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-center text-caption text-grey-8 q-my-md">
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="text-center text-caption text-grey-8 q-my-md"
+        >
           Figure 5: Portfolio Website Preview
         </div>
       </div>
@@ -884,13 +1130,18 @@ function liveDemo(project_id) {
       :class="$q.platform.is.mobile ? 'text-center' : ''"
       style="width: 800px"
     >
-      <div v-if="!$q.platform.is.mobile" v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-h5 text-bold">
+      <div
+        v-if="!$q.platform.is.mobile"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+        class="text-h5 text-bold"
+      >
         Portfolio Website
       </div>
       <q-breadcrumbs
         v-if="!$q.platform.is.mobile"
         separator="|"
-        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-body2 text-bold q-my-md"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+        class="text-body2 text-bold q-my-md"
         active-color=""
       >
         <q-breadcrumbs-el>
@@ -917,51 +1168,32 @@ function liveDemo(project_id) {
       </q-breadcrumbs>
       <div class="text-body1 text-weight-medium">
         <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }">
-          My personal website, the centerpiece of my portfolio, serves as a
-          canvas to express myself digitally by displaying my personality and
-          showcasing my skills and experiences. It is a platform, a place where
-          I share my growth as a human being and journey as a software engineer.
+          This site is built with Vue and Quasar, which was the stack I knew
+          best at the time, so I could spend my time on the actual design
+          instead of learning new tooling.
         </div>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-my-lg">
-          Before the process of development and producing any code, I needed to
-          choose a tech stack that would enable me to create a modern and
-          immersive user experience. The primary tools in this stack are Vue.js
-          where it was chosen for its simplicity and versatility. Furthermore
-          Quasar, built on top of Vue.js, extends my development capabilities
-          further by providing a rich set of pre-built UI components, custom CSS
-          styling, and a responsive design system. Not only are these great
-          tools to flesh out a website but they are also most familiar to me
-          honed through my current role as a software engineer.
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="q-my-lg"
+        >
+          The part that took the most fiddling was the scroll animations. I
+          wanted elements to animate in only once they actually scrolled into
+          view, not right when the page loads. I ended up writing a small custom
+          Vue directive that wraps the Intersection Observer API, so I can just
+          tag any element with it and pass in which animation to play and how
+          fast, and it triggers once and stops watching that element after.
         </div>
         <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }">
-          The journey of creating my personal website presented several
-          technical challenges, each of which contributed to my growth as a
-          developer. One particularly intriguing challenge involved implementing
-          viewport-based animations. I aimed to enhance user engagement by
-          triggering animations only when elements entered the viewport.
-          Achieving this effect required a deep dive into Vue.js directives and
-          the utilization of Intersection Observer APIs. Navigating the
-          complexities of scroll events and element visibility checks demanded a
-          meticulous approach. However, these challenges, though technically
-          demanding, ultimately led to the creation of a website that offers a
-          captivating and seamless user experience, exemplifying my dedication
-          to pushing the boundaries of web development.
-        </div>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
-          My project has been carefully optimized to deliver a seamless user
-          experience across devices including mobile and desktop platforms. By
-          using a responsive web design, the website dynamically changes its
-          layout and style to match a variety of screen sizes, ensuring that it
-          looks and works flawlessly on smartphones, tablets, laptops, and
-          larger desktop monitors. This thoughtful approach to mobile and
-          desktop optimization reflects a commitment to accessibility and
-          usability, and demonstrates a commitment to providing a robust user
-          experience regardless of the devices used to access the site
+          The contact form doesn't have a backend behind it at all. It's wired
+          up through EmailJS, so a message you send goes straight from your
+          browser to my inbox without me needing to host and maintain a server
+          just for a contact form.
         </div>
 
         <q-breadcrumbs
           separator="|"
-          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="flex flex-center text-body1 text-weight-medium q-mt-xl"
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="flex flex-center text-body1 text-weight-medium q-mt-xl"
           active-color=""
         >
           <q-breadcrumbs-el
@@ -1005,11 +1237,16 @@ function liveDemo(project_id) {
   <!-- ShuttleBus -->
   <div class="row reverse justify-evenly items-center q-mx-md">
     <div>
-      <div v-if="$q.platform.is.mobile" v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mb-sm text-center">
+      <div
+        v-if="$q.platform.is.mobile"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+        class="q-mb-sm text-center"
+      >
         <div class="text-h5 text-bold">ShuttleBus</div>
         <q-breadcrumbs
           separator="|"
-          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="flex flex-center text-body2 text-bold q-my-md"
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="flex flex-center text-body2 text-bold q-my-md"
           active-color=""
         >
           <q-breadcrumbs-el>
@@ -1038,7 +1275,8 @@ function liveDemo(project_id) {
 
       <div v-scroll-animate="{ enter: 'slideInRight', speed: 'faster' }">
         <img
-          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="gt-sm shadow-3"
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="gt-sm shadow-3"
           style="width: 900px; border-radius: 0.5rem; border: 1px solid"
           :style="
             $q.dark.isActive
@@ -1048,8 +1286,14 @@ function liveDemo(project_id) {
           src="static/shuttlebus.png"
         />
         <img
-          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="lt-md shadow-3"
-          style="width: 100%; max-width: 100%; border-radius: 0.5rem; border: 1px solid"
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="lt-md shadow-3"
+          style="
+            width: 100%;
+            max-width: 100%;
+            border-radius: 0.5rem;
+            border: 1px solid;
+          "
           :style="
             $q.dark.isActive
               ? 'border-color: rgba(255, 255, 255, 0.12)'
@@ -1057,7 +1301,10 @@ function liveDemo(project_id) {
           "
           src="static/shuttlebus.png"
         />
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-center text-caption text-grey-8 q-my-md">
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="text-center text-caption text-grey-8 q-my-md"
+        >
           Figure 6: ShuttleBus Preview
         </div>
       </div>
@@ -1067,12 +1314,18 @@ function liveDemo(project_id) {
       style="width: 800px"
     >
       <div v-if="!$q.platform.is.mobile">
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-h5 text-bold">ShuttleBus</div>
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="text-h5 text-bold"
+        >
+          ShuttleBus
+        </div>
       </div>
       <q-breadcrumbs
         v-if="!$q.platform.is.mobile"
         separator="|"
-        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="text-body2 text-bold q-my-md"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+        class="text-body2 text-bold q-my-md"
         active-color=""
       >
         <q-breadcrumbs-el>
@@ -1093,56 +1346,33 @@ function liveDemo(project_id) {
         </q-breadcrumbs-el>
       </q-breadcrumbs>
       <div class="text-body1 text-weight-medium">
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
-          The Shuttlebus System stands as a collaborative achievement, developed
-          by a dedicated team of six individuals for a university project. This
-          comprehensive application addresses the transportation needs of
-          students, faculty, and campus visitors, offering an intuitive
-          interface that displays real-time information on bus routes, current
-          bus positions, and estimated time of arrival (ETA). The project also
-          encompasses an administrative portal tailored to the needs of bus
-          drivers.
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="q-mt-lg"
+        >
+          ShuttleBus was a 6-person team project for a software engineering
+          class, a live tracking system for campus shuttles. Riders see where
+          each bus currently is on a map and get an ETA for their stop, plus any
+          announcements about schedule changes; drivers get a separate portal to
+          start and end their route and broadcast announcements. There's also an
+          admin side for managing routes and users.
         </div>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
-          On the user side, the application provides a user-friendly display of
-          bus routes, showcasing live bus positions and accurate ETAs. This
-          real-time tracking functionality enhances user convenience and
-          facilitates efficient commute planning. Important announcements
-          related to bus schedules or campus events are seamlessly integrated,
-          ensuring users receive timely notifications.
-        </div>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
-          For administrators, bus drivers access a secure login to initiate and
-          update their routes, contributing to the overall efficiency of the
-          shuttle system. The ability for drivers to update their live locations
-          ensures users have access to the most current information.
-          Additionally, the announcement feature enables drivers to communicate
-          important information directly to users through the application.
-        </div>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
-          A significant feature of the system is the inclusion of a maintenance
-          request functionality. This empowers users to submit maintenance
-          requests directly through the application, streamlining the process
-          for addressing issues and ensuring the continual reliability of the
-          shuttle service. This user-driven approach enhances overall user
-          experience and contributes to the efficient management of the shuttle
-          system.
-        </div>
-        <div v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="q-mt-lg">
-          The collaborative effort of the team, consisting of six members, is
-          evident in the seamless integration of user and administrative
-          functionalities. The Shuttlebus System not only simplifies
-          transportation logistics for the campus community but also offers a
-          user-centric approach with features designed to enhance communication,
-          efficiency, and maintenance processes. This project serves as a
-          testament to the team's ability to address real-world challenges with
-          innovative solutions, showcasing their skills in system design and
-          collaborative development.
+        <div
+          v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+          class="q-mt-lg"
+        >
+          Built with PHP and MySQL, with the Google Maps JS API driving the live
+          location tracking, drivers' phones push their coordinates and the map
+          polls and updates rider-side in near real time. I worked across most
+          of the app rather than owning one piece, from driver-side route
+          tracking to the maintenance request feature that let riders flag a bus
+          issue directly instead of it going through email.
         </div>
       </div>
       <q-breadcrumbs
         separator="|"
-        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }" class="flex flex-center text-body1 text-weight-medium q-mt-xl"
+        v-scroll-animate="{ enter: 'fadeIn', speed: 'slower' }"
+        class="flex flex-center text-body1 text-weight-medium q-mt-xl"
         active-color=""
       >
         <q-breadcrumbs-el
